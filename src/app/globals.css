@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fdf0d5;
+  --color-navy: #003049;
+  --color-ink: #001e2e;
+  --color-ocean: #669bbc;
+  --color-ocean-light: #8db8d4;
+
+  --font-playfair: var(--font-playfair-display), serif;
+  --font-jost: var(--font-jost), sans-serif;
+  --font-cormorant: var(--font-cormorant-garamond), serif;
+}
+
+body {
+  @apply bg-cream text-navy font-jost font-light overflow-x-hidden antialiased;
+}
+
+/* Base custom styles from original HTML */
+html {
+  scroll-behavior: smooth;
+}
+
+/* We'll use Framer Motion for scroll reveal animations instead of global CSS */
