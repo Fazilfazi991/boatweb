@@ -5,8 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[680px] overflow-hidden flex items-end">
-
+    <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-cream">
       {/* Background Video */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <video
@@ -16,7 +15,7 @@ export default function Hero() {
           playsInline
           className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
         >
-          <source src="https://videos.pexels.com/video-files/5765842/5765842-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+          <source src="/hero-video.mp4" type="video/mp4" />
         </video>
       </div>
 
