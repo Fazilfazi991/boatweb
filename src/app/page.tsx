@@ -21,7 +21,7 @@ export default function Home() {
       {/* Video Manifesto Section (Sensory Break / Interlude) */}
       <div className="relative h-[72vh] overflow-hidden flex items-center justify-center z-0">
         <img src="/images/custom/menu_seafood_tower_platter_1777327161161.png" alt="Sensory Background" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-white/10"></div>
+        <div className="absolute inset-0 bg-white/45 backdrop-blur-[2px]"></div>
         
         <div className="relative text-center max-w-[860px] px-[60px]">
           <blockquote className="font-cormorant italic text-[clamp(26px,4.2vw,56px)] font-bold text-navy leading-[1.42] mb-[22px] drop-shadow-md">
@@ -45,7 +45,7 @@ export default function Home() {
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover scale-[1.06] transition-transform duration-[14s] ease-linear group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-white/20"></div>
+        <div className="absolute inset-0 bg-white/45 backdrop-blur-[2px]"></div>
         
         <div className="relative text-center max-w-[680px] px-10">
           <span className="inline-flex items-center justify-center gap-3.5 text-[10px] tracking-[5px] uppercase text-navy/70 font-bold mb-6.5">
