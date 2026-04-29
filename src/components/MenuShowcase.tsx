@@ -10,7 +10,7 @@ export default function MenuShowcase() {
     <section className="bg-cream pt-12 pb-0" id="menu">
 
       <div className="grid grid-cols-1 md:grid-cols-[1.35fr_1fr_1fr_1.35fr] md:grid-rows-[480px_310px] gap-[3px]">
-        {menuItems.map((item, i) => (
+        {menuItems.slice(0, 6).map((item, i) => (
           <div
             key={item.id}
             className={`group relative overflow-hidden bg-cream 
