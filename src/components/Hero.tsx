@@ -6,23 +6,11 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-cream">
-      {/* Background Video */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      {/* Fallback Image & Gradient */}
-      <img src="/images/custom/hero_waterfront_dubai_1777327086914.png" alt="Hero Background Fallback" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-t from-cream/90 via-cream/40 to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-cream/60 to-transparent"></div>
+      {/* Background Image */}
+      <img src="/images/custom/hero_waterfront_dubai_1777327086914.png" alt="Hero Background" loading="eager" className="absolute inset-0 w-full h-full object-cover" />
+      
+      <div className="absolute inset-0 bg-gradient-to-t from-cream/90 via-cream/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-cream/40 to-transparent"></div>
 
       <div className="relative px-8 md:px-20 pb-20 md:pb-24 max-w-[850px]">
         <motion.div
