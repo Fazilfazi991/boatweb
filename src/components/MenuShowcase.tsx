@@ -6,19 +6,19 @@ import { menuItems } from "../data/menu";
 
 export default function MenuShowcase() {
   return (
-    <section className="bg-cream pt-[130px] pb-0" id="menu">
+    <section className="bg-cream pt-24 pb-0" id="menu">
       <motion.div
         initial={{ opacity: 0, y: 38 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10%" }}
         transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center px-[60px] pb-[70px]"
+        className="text-center px-[60px] pb-14"
       >
-        <span className="inline-flex items-center justify-center gap-3.5 text-[9px] tracking-[5px] uppercase text-ocean font-normal mb-6.5">
+        <span className="inline-flex items-center justify-center gap-3.5 text-[10px] tracking-[5px] uppercase text-ocean font-bold mb-6">
           <span className="w-6.5 h-[1px] bg-ocean shrink-0"></span>
           The Menu
         </span>
-        <h2 className="font-playfair font-normal leading-[1.07] text-navy text-[clamp(38px,5vw,70px)]">
+        <h2 className="font-playfair font-bold leading-[1.07] text-navy text-[clamp(38px,5.5vw,72px)]">
           Caught with Care.<br />
           <em className="italic text-ocean">Served with Intention.</em>
         </h2>
