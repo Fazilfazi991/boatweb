@@ -18,13 +18,31 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-500 ${
-        isScrolled
-          ? "px-8 md:px-16 py-4 bg-ink/95 backdrop-blur-md"
-          : "px-8 md:px-16 py-8"
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+      {/* Top Contact Bar */}
+      <div className={`hidden md:flex items-center justify-between px-16 py-2 border-b border-white/5 bg-ink/40 backdrop-blur-sm transition-all duration-500 ${isScrolled ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"}`}>
+        <div className="flex items-center gap-8">
+          <a href="tel:+971500000000" className="text-[9px] tracking-[2px] uppercase text-white/50 hover:text-ocean transition-colors flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-ocean animate-pulse"></span>
+            +971 50 000 0000
+          </a>
+          <span className="text-white/10">|</span>
+          <span className="text-[9px] tracking-[2px] uppercase text-white/50 flex items-center gap-2">
+            Waterfront Market, Deira, Dubai
+          </span>
+        </div>
+        <div className="text-[9px] tracking-[2px] uppercase text-white/50">
+          Open Daily: 12:00 PM - 12:00 AM
+        </div>
+      </div>
+
+      <div
+        className={`flex items-center justify-between transition-all duration-500 ${
+          isScrolled
+            ? "px-8 md:px-16 py-4 bg-ink/95 backdrop-blur-md"
+            : "px-8 md:px-16 py-8"
+        }`}
+      >
       <a
         href="#"
         className="font-playfair text-[21px] font-normal text-white no-underline tracking-[0.5px]"
@@ -64,6 +82,15 @@ export default function Navbar() {
           </a>
         </li>
       </ul>
+      
+      <div className="hidden md:flex items-center gap-6">
+        <Link 
+          href="/menu"
+          className="bg-ocean text-navy py-3 px-8 text-[10px] font-bold tracking-[3px] uppercase transition-all hover:bg-white"
+        >
+          Order Online
+        </Link>
+      </div>
 
       {/* Mobile Menu Button */}
       <button

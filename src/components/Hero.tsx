@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -48,20 +49,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-9"
+          className="flex flex-wrap items-center gap-6 md:gap-9"
         >
-          <a
-            href="#loc"
-            className="group relative bg-navy text-cream py-[18px] px-[54px] font-jost text-[10px] font-bold tracking-[3px] uppercase no-underline inline-block transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden shadow-2xl"
+          <Link
+            href="/menu"
+            className="group relative bg-navy text-cream py-[18px] px-[44px] md:px-[54px] font-jost text-[10px] font-bold tracking-[3px] uppercase no-underline inline-block transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden shadow-2xl"
           >
             <div className="absolute inset-0 bg-ocean -translate-x-[101%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0"></div>
-            <span className="relative z-10 group-hover:text-navy transition-colors duration-500">Find Us</span>
-          </a>
+            <span className="relative z-10 group-hover:text-navy transition-colors duration-500">Order Online</span>
+          </Link>
           <a
-            href="#menu"
+            href="#loc"
             className="group flex items-center gap-3.5 text-navy/70 text-[10px] tracking-[3.5px] uppercase no-underline transition-colors font-bold hover:text-navy"
           >
-            Explore Menu
+            Find Us
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5" />
           </a>
         </motion.div>

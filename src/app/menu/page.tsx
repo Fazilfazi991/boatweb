@@ -95,7 +95,7 @@ export default function MenuPage() {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`whitespace-nowrap text-[10px] tracking-[3px] uppercase transition-all relative ${
-                activeCategory === cat ? "text-navy font-bold" : "text-navy/40 hover:text-navy"
+                activeCategory === cat ? "text-navy font-bold" : "text-navy/70 hover:text-navy"
               }`}
             >
               {cat}

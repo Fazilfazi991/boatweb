@@ -4,7 +4,9 @@ import Ticker from "@/components/Ticker";
 import Origin from "@/components/Origin";
 import Stats from "@/components/Stats";
 import MenuShowcase from "@/components/MenuShowcase";
+import DailyCatch from "@/components/DailyCatch";
 import Experience from "@/components/Experience";
+import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
@@ -17,6 +19,7 @@ export default function Home() {
       <Ticker />
       <Origin />
       <Stats />
+      <DailyCatch />
       
       {/* Video Manifesto Section (Sensory Break / Interlude) */}
       <div className="relative h-[72vh] overflow-hidden flex items-center justify-center z-0">
@@ -36,6 +39,7 @@ export default function Home() {
       <MenuShowcase />
       <Experience />
       <Gallery />
+      <Testimonials />
 
       {/* Sensory Break (Bottom) */}
       <section className="relative h-[82vh] overflow-hidden flex items-center justify-center group">
