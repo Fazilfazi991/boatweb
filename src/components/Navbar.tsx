@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,13 +38,13 @@ export default function Navbar() {
       {/* Desktop Menu */}
       <ul className="hidden md:flex items-center gap-11 list-none m-0 p-0">
         <li>
-          <a
-            href="#menu"
+          <Link
+            href="/menu"
             className="text-white/65 hover:text-white text-[10.5px] font-light tracking-[2.5px] uppercase transition-colors relative group"
           >
             Menu
             <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
-          </a>
+          </Link>
         </li>
         <li>
           <a
@@ -75,13 +76,13 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-ink/95 backdrop-blur-md flex flex-col items-center py-8 gap-6 md:hidden border-t border-ocean-light/10">
-          <a
-            href="#menu"
+          <Link
+            href="/menu"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-white text-xs font-light tracking-[3px] uppercase"
           >
             Menu
-          </a>
+          </Link>
           <a
             href="#exp"
             onClick={() => setIsMobileMenuOpen(false)}
