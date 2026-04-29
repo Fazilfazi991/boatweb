@@ -1,6 +1,8 @@
+"use client";
+
 import { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ShoppingBag, Plus, Minus, X, Check, Filter, Utensils, AlertCircle } from "lucide-react";
+import { ArrowLeft, ShoppingBag, Plus, Minus, X, Check, Filter, Utensils, AlertCircle, Truck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { menuItems, MenuItem } from "@/data/menu";
@@ -107,11 +109,12 @@ function MenuContent() {
               )}
             </div>
             <h1 className="font-playfair text-[clamp(40px,6vw,84px)] font-bold leading-none mb-6">
-              Our <em className="italic text-ocean">Menu</em>
+              {tableNumber ? "Restaurant " : "Digital "}<em className="italic text-ocean">Menu</em>
             </h1>
             <p className="text-[15px] text-white/60 max-w-xl leading-relaxed font-light">
-              Explore our selection of premium seafood, caught daily and prepared with the finest local ingredients. 
-              {tableNumber ? " Your order will be served directly to your table." : " Enjoy our signature dishes from the comfort of your home."}
+              {tableNumber 
+                ? "Enjoy our curated restaurant selection, prepared fresh and served directly to your table at the Waterfront Market." 
+                : "Explore our premium seafood selection for home delivery. Caught daily, delivered with care across Dubai."}
             </p>
           </motion.div>
         </div>
@@ -226,8 +229,9 @@ function MenuContent() {
             >
               <div className="p-8 flex items-center justify-between border-b border-navy/5">
                 <div className="flex flex-col">
-                  <h2 className="font-playfair text-3xl font-bold">Your Order</h2>
-                  {tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1">Dine-in: Table {tableNumber}</span>}
+                  <h2 className="font-playfair text-3xl font-bold">{tableNumber ? "Dine-in Order" : "Online Order"}</h2>
+                  {tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1">Table {tableNumber}</span>}
+                  {!tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1 flex items-center gap-1"><Truck size={10} /> Express Delivery</span>}
                 </div>
                 <button onClick={() => setIsCartOpen(false)} className="text-navy/40 hover:text-navy transition-colors">
                   <X size={24} />
