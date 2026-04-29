@@ -9,6 +9,18 @@ import { menuItems, MenuItem } from "@/data/menu";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
+const categories = [
+  "All",
+  "Appetizers",
+  "Soups & Salads",
+  "Main Courses",
+  "Signature Dishes",
+  "Sharing Platters",
+  "Market Fresh",
+  "Desserts",
+  "Beverages",
+];
+
 function MenuContent() {
   const searchParams = useSearchParams();
   const tableNumber = searchParams.get("table");
