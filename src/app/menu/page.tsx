@@ -1,30 +1,22 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ShoppingBag, Plus, Minus, X, Check, Filter } from "lucide-react";
+import { ArrowLeft, ShoppingBag, Plus, Minus, X, Check, Filter, Utensils, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { menuItems, MenuItem } from "@/data/menu";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-const categories = [
-  "All",
-  "Appetizers",
-  "Soups & Salads",
-  "Main Courses",
-  "Signature Dishes",
-  "Sharing Platters",
-  "Market Fresh",
-  "Desserts",
-  "Beverages",
-];
-
-export default function MenuPage() {
+function MenuContent() {
+  const searchParams = useSearchParams();
+  const tableNumber = searchParams.get("table");
+  
   const [activeCategory, setActiveCategory] = useState("All");
   const [cart, setCart] = useState<{ item: MenuItem; quantity: number }[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState<string | null>(null);
+  const [isConfirming, setIsConfirming] = useState(false);
+  const [orderStatus, setOrderStatus] = useState<'idle' | 'submitting' | 'complete'>('idle');
 
   const filteredItems = activeCategory === "All" 
     ? menuItems 
@@ -55,6 +47,37 @@ export default function MenuPage() {
 
   const cartTotal = cart.reduce((sum, item) => sum + (parseInt(item.item.price) * item.quantity), 0);
 
+  const handlePlaceOrder = () => {
+    setIsConfirming(true);
+  };
+
+  const submitOrder = async () => {
+    setOrderStatus('submitting');
+    
+    // Simulate API call
+    const newOrder = {
+      id: Math.random().toString(36).substr(2, 9),
+      table: tableNumber || "Takeaway",
+      items: cart.map(c => ({ name: c.item.name, quantity: c.quantity })),
+      total: cartTotal,
+      timestamp: new Date().toISOString(),
+      status: 'pending'
+    };
+
+    // Save to localStorage for mock Kitchen Dashboard
+    const existingOrders = JSON.parse(localStorage.getItem('boat_orders') || '[]');
+    localStorage.setItem('boat_orders', JSON.stringify([...existingOrders, newOrder]));
+
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setOrderStatus('complete');
+    setCart([]);
+    setTimeout(() => {
+      setIsConfirming(false);
+      setOrderStatus('idle');
+      setIsCartOpen(false);
+    }, 2000);
+  };
+
   return (
     <main className="bg-cream min-h-screen text-navy">
       <Navbar />
@@ -73,22 +96,29 @@ export default function MenuPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Link href="/" className="inline-flex items-center gap-2 text-ocean-light hover:text-white text-[10px] tracking-[3px] uppercase mb-8 transition-colors">
-              <ArrowLeft size={14} /> Back to Home
-            </Link>
+            <div className="flex flex-wrap items-center gap-6 mb-8">
+              <Link href="/" className="inline-flex items-center gap-2 text-ocean-light hover:text-white text-[10px] tracking-[3px] uppercase transition-colors">
+                <ArrowLeft size={14} /> Back to Home
+              </Link>
+              {tableNumber && (
+                <div className="flex items-center gap-2 bg-ocean text-navy px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[2px] uppercase">
+                  <Utensils size={12} /> Table {tableNumber}
+                </div>
+              )}
+            </div>
             <h1 className="font-playfair text-[clamp(40px,6vw,84px)] font-bold leading-none mb-6">
               Our <em className="italic text-ocean">Menu</em>
             </h1>
             <p className="text-[15px] text-white/60 max-w-xl leading-relaxed font-light">
               Explore our selection of premium seafood, caught daily and prepared with the finest local ingredients. 
-              Enjoy our signature dishes from the comfort of your home.
+              {tableNumber ? " Your order will be served directly to your table." : " Enjoy our signature dishes from the comfort of your home."}
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Menu Navigation */}
-      <section className="sticky top-[80px] z-30 bg-cream/95 backdrop-blur-md border-b border-navy/5 px-8 md:px-20 py-6 overflow-x-auto">
+      <section className="sticky top-[75px] z-30 bg-cream/95 backdrop-blur-md border-b border-navy/5 px-8 md:px-20 py-6 overflow-x-auto">
         <div className="flex items-center gap-8 no-scrollbar">
           {categories.map(cat => (
             <button
@@ -162,12 +192,12 @@ export default function MenuPage() {
       </section>
 
       {/* Cart Float Button */}
-      {cart.length > 0 && (
+      {cart.length > 0 && !isCartOpen && (
         <motion.button
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           onClick={() => setIsCartOpen(true)}
-          className="fixed bottom-8 right-8 z-40 bg-navy text-cream w-16 h-16 rounded-full shadow-2xl flex items-center justify-center group"
+          className="fixed bottom-8 right-32 z-40 bg-navy text-cream w-16 h-16 rounded-full shadow-2xl flex items-center justify-center group"
         >
           <ShoppingBag size={24} />
           <span className="absolute -top-1 -right-1 bg-ocean text-navy w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center">
@@ -195,7 +225,10 @@ export default function MenuPage() {
               className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-cream z-50 shadow-2xl flex flex-col"
             >
               <div className="p-8 flex items-center justify-between border-b border-navy/5">
-                <h2 className="font-playfair text-3xl font-bold">Your Order</h2>
+                <div className="flex flex-col">
+                  <h2 className="font-playfair text-3xl font-bold">Your Order</h2>
+                  {tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1">Dine-in: Table {tableNumber}</span>}
+                </div>
                 <button onClick={() => setIsCartOpen(false)} className="text-navy/40 hover:text-navy transition-colors">
                   <X size={24} />
                 </button>
@@ -237,8 +270,11 @@ export default function MenuPage() {
                     <span className="text-[10px] tracking-[3px] uppercase text-white/40">Total Amount</span>
                     <span className="font-playfair text-3xl font-bold">AED {cartTotal}</span>
                   </div>
-                  <button className="w-full bg-ocean text-navy py-5 font-jost text-[10px] font-bold tracking-[3px] uppercase transition-all hover:bg-white">
-                    Place Order Now
+                  <button 
+                    onClick={handlePlaceOrder}
+                    className="w-full bg-ocean text-navy py-5 font-jost text-[10px] font-bold tracking-[3px] uppercase transition-all hover:bg-white"
+                  >
+                    {tableNumber ? "Send to Kitchen" : "Place Order Now"}
                   </button>
                 </div>
               )}
@@ -247,7 +283,83 @@ export default function MenuPage() {
         )}
       </AnimatePresence>
 
+      {/* Confirmation Modal */}
+      <AnimatePresence>
+        {isConfirming && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => orderStatus === 'idle' && setIsConfirming(false)}
+              className="absolute inset-0 bg-ink/80 backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative bg-cream p-10 md:p-14 max-w-lg w-full rounded-sm shadow-2xl text-center"
+            >
+              {orderStatus === 'idle' ? (
+                <>
+                  <div className="w-20 h-20 bg-ocean/20 text-ocean rounded-full flex items-center justify-center mx-auto mb-8">
+                    <Utensils size={40} />
+                  </div>
+                  <h2 className="font-playfair text-3xl font-bold mb-4">Confirm Your Order</h2>
+                  <p className="text-navy/60 font-light mb-8 leading-relaxed">
+                    {tableNumber 
+                      ? `Your order will be sent directly to the kitchen for Table ${tableNumber}. Please confirm to proceed.`
+                      : "Are you sure you want to place this order? This action cannot be undone."}
+                  </p>
+                  
+                  <div className="flex flex-col gap-4">
+                    <button 
+                      onClick={submitOrder}
+                      className="w-full bg-navy text-white py-5 font-jost text-[10px] font-bold tracking-[3px] uppercase hover:bg-ocean hover:text-navy transition-all"
+                    >
+                      Yes, Confirm Order
+                    </button>
+                    <button 
+                      onClick={() => setIsConfirming(false)}
+                      className="w-full border border-navy/10 py-5 font-jost text-[10px] font-bold tracking-[3px] uppercase text-navy/40 hover:text-navy hover:border-navy transition-all"
+                    >
+                      Go Back
+                    </button>
+                  </div>
+                </>
+              ) : orderStatus === 'submitting' ? (
+                <div className="py-12">
+                  <div className="w-16 h-16 border-4 border-ocean border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
+                  <h3 className="text-[10px] tracking-[4px] uppercase font-bold text-navy">Sending to Kitchen...</h3>
+                </div>
+              ) : (
+                <div className="py-12">
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="w-20 h-20 bg-green-500/20 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8"
+                  >
+                    <Check size={40} />
+                  </motion.div>
+                  <h3 className="font-playfair text-3xl font-bold mb-2 text-green-600">Order Sent!</h3>
+                  <p className="text-navy/60 font-light">Chef is preparing your meal.</p>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <Footer />
     </main>
   );
 }
+
+export default function MenuPage() {
+  return (
+    <Suspense fallback={<div className="h-screen bg-cream flex items-center justify-center">Loading...</div>}>
+      <MenuContent />
+    </Suspense>
+  );
+}
+

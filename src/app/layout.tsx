@@ -23,6 +23,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 import SmoothScroll from "@/components/SmoothScroll";
+import FloatingActions from "@/components/FloatingActions";
 
 export const metadata: Metadata = {
   title: "Boat Seafood Dubai | Premium Seafood Restaurant at Waterfront Market",
@@ -41,6 +42,7 @@ export default function RootLayout({
       >
         <SmoothScroll>
           {children}
+          <FloatingActions />
         </SmoothScroll>
       </body>
     </html>
