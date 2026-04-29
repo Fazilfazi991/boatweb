@@ -22,7 +22,7 @@ export default function FloatingActions() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">
+    <div className="fixed bottom-8 right-8 z-40 flex flex-col items-end gap-4">
       <AnimatePresence>
         {isOpen && (
           <motion.div
