@@ -49,9 +49,13 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="relative h-10 w-28 md:w-36 no-underline flex items-center"
+          className="relative h-14 w-28 md:w-36 no-underline flex items-center"
         >
-          <img src="/gjgf.png" alt="Boat Seafood Logo" className="max-h-full w-auto object-contain" />
+          <img 
+            src="/logo.png" 
+            alt="Boat Seafood Logo" 
+            className={`max-h-full w-auto object-contain transition-all duration-500 ${isScrolled ? "brightness-0 invert opacity-90" : "brightness-0 invert"}`} 
+          />
         </Link>
 
         {/* Desktop Menu */}

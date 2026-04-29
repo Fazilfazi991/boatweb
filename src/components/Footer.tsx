@@ -5,12 +5,9 @@ export default function Footer() {
     <footer className="bg-[#001117] border-t border-ocean-light/5">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.7fr_1fr_1fr_1fr] gap-14 py-21 px-8 md:px-20 border-b border-white/5">
         <div>
-          <span className="font-playfair text-2xl font-normal text-white block mb-4.5">
-            Boat
-            <span className="text-[9px] font-jost font-light tracking-[3px] text-ocean-light align-super ml-1">
-              Seafood
-            </span>
-          </span>
+          <div className="mb-6 h-16 w-36">
+            <img src="/logo.png" alt="Boat Seafood" className="h-full w-auto object-contain brightness-0 invert" />
+          </div>
           <p className="text-xs font-light text-white/30 leading-[2.05] max-w-[270px] mb-8">
             Premium seafood dining at the heart of Dubai's Waterfront Market. Where the ocean meets the city. Est. 2021.
           </p>
@@ -42,9 +39,9 @@ export default function Footer() {
         <div>
           <div className="text-[8px] tracking-[4px] uppercase text-ocean-light mb-6.5 font-normal">Navigate</div>
           <ul className="list-none flex flex-col gap-3.5 m-0 p-0">
-            <li><a href="#menu" className="text-xs font-light text-white/35 no-underline transition-colors duration-300 hover:text-white/80 block">The Menu</a></li>
-            <li><a href="#exp" className="text-xs font-light text-white/35 no-underline transition-colors duration-300 hover:text-white/80 block">Experience</a></li>
-            <li><a href="#loc" className="text-xs font-light text-white/35 no-underline transition-colors duration-300 hover:text-white/80 block">Location</a></li>
+            <li><a href="/menu" className="text-xs font-light text-white/35 no-underline transition-colors duration-300 hover:text-white/80 block">The Menu</a></li>
+            <li><a href="/#exp" className="text-xs font-light text-white/35 no-underline transition-colors duration-300 hover:text-white/80 block">Experience</a></li>
+            <li><a href="/#loc" className="text-xs font-light text-white/35 no-underline transition-colors duration-300 hover:text-white/80 block">Location</a></li>
           </ul>
         </div>
 
