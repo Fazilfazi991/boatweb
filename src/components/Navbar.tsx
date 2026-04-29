@@ -43,15 +43,12 @@ export default function Navbar() {
             : "px-8 md:px-16 py-8"
         }`}
       >
-      <a
-        href="#"
-        className="font-playfair text-[21px] font-normal text-white no-underline tracking-[0.5px]"
+      <Link
+        href="/"
+        className="relative h-12 w-32 no-underline"
       >
-        Boat
-        <span className="text-[9px] font-jost font-light tracking-[3px] text-ocean-light align-super ml-1">
-          Seafood
-        </span>
-      </a>
+        <img src="/gjgf.png" alt="Boat Seafood Logo" className="h-full w-full object-contain" />
+      </Link>
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex items-center gap-11 list-none m-0 p-0">
@@ -99,6 +96,7 @@ export default function Navbar() {
       >
         {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
+      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -129,3 +127,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
