@@ -9,7 +9,7 @@ const dailyCatch = [
     name: "Alaskan King Crab",
     origin: "Bering Sea",
     description: "Premium clusters, naturally sweet and tender.",
-    image: "https://images.pexels.com/photos/8991667/pexels-photo-8991667.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
+    image: "/images/custom/menu_alaskan_king_crab.png",
     price: "310",
   },
   {

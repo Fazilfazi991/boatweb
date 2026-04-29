@@ -24,7 +24,7 @@ export default function Navbar() {
       }`}
     >
       {/* Top Contact Bar */}
-      <div className="hidden md:flex items-center justify-between px-16 py-2.5 border-b border-white/5 bg-ink/40 backdrop-blur-sm">
+      <div className="hidden md:flex items-center justify-between px-16 py-2 border-b border-white/5 bg-ink/40 backdrop-blur-sm">
         <div className="flex items-center gap-8">
           <a href="tel:+971500000000" className="text-[9px] tracking-[2px] uppercase text-white/50 hover:text-ocean transition-colors flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-ocean animate-pulse"></span>
@@ -43,13 +43,13 @@ export default function Navbar() {
       <div
         className={`flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isScrolled
-            ? "px-8 md:px-16 py-3.5 bg-ink/95 backdrop-blur-md shadow-2xl"
-            : "px-8 md:px-16 py-7 bg-ink/80 backdrop-blur-sm"
+            ? "px-8 md:px-16 py-3 bg-ink/95 backdrop-blur-md shadow-2xl"
+            : "px-8 md:px-16 py-5.5 bg-ink/80 backdrop-blur-sm"
         }`}
       >
         <Link
           href="/"
-          className="relative h-20 w-36 md:w-48 no-underline flex items-center"
+          className="relative h-18 w-36 md:w-44 no-underline flex items-center"
         >
           <img 
             src="/logo.png" 
