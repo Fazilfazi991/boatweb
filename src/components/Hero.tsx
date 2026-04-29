@@ -9,8 +9,8 @@ export default function Hero() {
       {/* Background Image */}
       <img src="/images/custom/hero_waterfront_dubai_1777327086914.png" alt="Hero Background" loading="eager" className="absolute inset-0 w-full h-full object-cover" />
       
-      <div className="absolute inset-0 bg-gradient-to-t from-cream/90 via-cream/20 to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-cream/40 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-cream/60 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-cream/30 via-transparent to-transparent"></div>
 
       <div className="relative px-8 md:px-20 pb-20 md:pb-24 max-w-[850px]">
         <motion.div

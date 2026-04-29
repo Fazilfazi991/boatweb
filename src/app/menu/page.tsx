@@ -61,10 +61,11 @@ export default function MenuPage() {
 
       {/* Hero Section */}
       <section className="relative pt-44 pb-24 px-8 md:px-20 bg-navy text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src="/images/custom/hero_waterfront_dubai_1777327086914.png" alt="Background" className="w-full h-full object-cover" />
+        <div className="absolute inset-0">
+          <img src="/images/custom/hero_waterfront_dubai_1777327086914.png" alt="Background" className="w-full h-full object-cover" loading="eager" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-navy/20"></div>
         
         <div className="relative z-10 max-w-4xl">
           <motion.div
