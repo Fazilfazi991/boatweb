@@ -21,17 +21,32 @@ export default function Home() {
       <Stats />
       <DailyCatch />
       
-      {/* Video Manifesto Section (Sensory Break / Interlude) */}
-      <div className="relative h-[72vh] overflow-hidden flex items-center justify-center z-0">
-        <img src="/images/custom/menu_seafood_tower_platter_1777327161161.png" alt="Sensory Background" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
-        
-        <div className="relative text-center max-w-[860px] px-[60px]">
-          <blockquote className="font-cormorant italic text-[clamp(26px,4.2vw,56px)] font-bold text-white leading-[1.42] mb-[22px] drop-shadow-lg">
-            "Seafood is not just food — it is an experience, a story, and a <strong className="not-italic text-white font-extrabold underline decoration-ocean/60">connection to the sea.</strong>"
+      {/* Manifesto Section — editorial split layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+        {/* Left: full-color image, no overlay */}
+        <div className="relative overflow-hidden min-h-[420px]">
+          <img
+            src="/images/custom/menu_seafood_tower_platter_1777327161161.png"
+            alt="Seafood Tower"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover scale-[1.04] hover:scale-100 transition-transform duration-[2s] ease-out"
+          />
+          {/* Subtle left-edge gradient so the panel blend is seamless */}
+          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#001a24] to-transparent hidden md:block"></div>
+        </div>
+
+        {/* Right: dark panel with editorial quote */}
+        <div className="bg-[#001a24] flex flex-col justify-center px-12 md:px-16 py-20">
+          <span className="inline-flex items-center gap-3 text-[10px] tracking-[5px] uppercase text-ocean font-semibold mb-8">
+            <span className="w-8 h-[1px] bg-ocean shrink-0"></span>
+            Brand Manifesto
+          </span>
+          <blockquote className="font-cormorant italic text-[clamp(28px,3.5vw,52px)] font-bold text-white leading-[1.35] mb-8">
+            "Seafood is not just food — it is an experience, a story, and a{" "}
+            <em className="not-italic text-ocean">connection to the sea.</em>"
           </blockquote>
-          <cite className="text-[10px] tracking-[4.5px] uppercase text-white/80 font-bold not-italic">
-            Boat Seafood · Brand Manifesto
+          <cite className="text-[11px] tracking-[3px] uppercase text-white/50 font-semibold not-italic">
+            — Boat Seafood, Dubai
           </cite>
         </div>
       </div>

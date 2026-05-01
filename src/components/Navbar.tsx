@@ -49,7 +49,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="relative h-20 w-44 md:w-56 no-underline flex items-center"
+          className="relative h-24 w-52 md:w-64 no-underline flex items-center"
         >
           <img 
             src="/logo.png" 
@@ -63,7 +63,7 @@ export default function Navbar() {
           <li>
             <Link
               href="/menu"
-              className="text-white/65 hover:text-white text-[13px] font-light tracking-[2px] uppercase transition-colors relative group"
+              className="text-white/65 hover:text-white text-[15px] font-medium tracking-[2px] uppercase transition-colors relative group"
             >
               Menu
               <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
@@ -72,7 +72,7 @@ export default function Navbar() {
           <li>
             <a
               href="/#exp"
-              className="text-white/65 hover:text-white text-[13px] font-light tracking-[2px] uppercase transition-colors relative group"
+              className="text-white/65 hover:text-white text-[15px] font-medium tracking-[2px] uppercase transition-colors relative group"
             >
               Experience
               <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
@@ -81,7 +81,7 @@ export default function Navbar() {
           <li>
             <a
               href="/#loc"
-              className="text-white/65 hover:text-white text-[13px] font-light tracking-[2px] uppercase transition-colors relative group"
+              className="text-white/65 hover:text-white text-[15px] font-medium tracking-[2px] uppercase transition-colors relative group"
             >
               Location
             </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           <Link 
             href="/menu"
-            className="bg-ocean text-navy py-2.5 px-7 text-[13px] font-bold tracking-[2px] uppercase transition-all hover:bg-white"
+            className="bg-ocean text-navy py-3 px-8 text-[14px] font-bold tracking-[2px] uppercase transition-all hover:bg-white"
           >
             Order Online
           </Link>
