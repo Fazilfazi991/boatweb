@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-ink">
+    <section id="hero" className="relative min-h-screen flex items-center pt-40 overflow-hidden bg-ink">
 
       {/* ── Full-screen video background ── */}
       <video
