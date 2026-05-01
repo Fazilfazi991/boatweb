@@ -19,6 +19,7 @@ body {
 /* Base custom styles from original HTML */
 html {
   scroll-behavior: smooth;
+  zoom: 0.85;
 }
 
 /* We'll use Framer Motion for scroll reveal animations instead of global CSS */

@@ -40,13 +40,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div
-        className={`flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isScrolled
-            ? "px-8 md:px-16 py-3 bg-ink/95 backdrop-blur-md shadow-2xl"
-            : "px-8 md:px-16 py-5.5 bg-ink/80 backdrop-blur-sm"
-        }`}
-      >
+      {/* Main Nav Bar — 70% width, centered */}
+      <div className="flex justify-center px-4">
+        <div
+          className={`w-[70%] flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isScrolled
+              ? "px-6 md:px-10 py-3 bg-ink/95 backdrop-blur-md shadow-2xl rounded-2xl"
+              : "px-6 md:px-10 py-5 bg-ink/80 backdrop-blur-sm rounded-2xl"
+          }`}
+        >
         <Link
           href="/"
           className="relative h-24 w-52 md:w-64 no-underline flex items-center"
@@ -104,6 +106,7 @@ export default function Navbar() {
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
