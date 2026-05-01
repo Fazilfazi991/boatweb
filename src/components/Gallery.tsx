@@ -25,7 +25,7 @@ export default function Gallery() {
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 20,
+            duration: 15,
           }}
         >
           {mobileImages.map((src, i) => (
