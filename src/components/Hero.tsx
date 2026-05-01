@@ -6,22 +6,40 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-cream">
-      {/* Background Image */}
-      <img src="/images/custom/hero_waterfront_dubai_1777327086914.png" alt="Hero Background" loading="eager" className="absolute inset-0 w-full h-full object-cover" />
-      
-      <div className="absolute inset-0 bg-gradient-to-t from-cream/60 via-transparent to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-cream/30 via-transparent to-transparent"></div>
+    <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-ink">
 
-      <div className="relative px-8 md:px-20 pb-20 md:pb-24 max-w-[850px]">
+      {/* ── Full-screen video background ── */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/images/custom/hero_waterfront_dubai_1777327086914.png"
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+        {/* Fallback image if video fails */}
+        <img
+          src="/images/custom/hero_waterfront_dubai_1777327086914.png"
+          alt="Hero Background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </video>
+
+      {/* Overlays — keep video color rich, just darken for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
+
+      {/* Content */}
+      <div className="relative px-8 md:px-20 pb-20 md:pb-24 max-w-[860px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-3.5 mb-6"
         >
-          <div className="w-[38px] h-[1px] bg-navy/40"></div>
-          <span className="text-[9px] tracking-[4.5px] uppercase text-navy/80 font-bold">
+          <div className="w-[38px] h-[1px] bg-white/50"></div>
+          <span className="text-[9px] tracking-[4.5px] uppercase text-white/80 font-bold">
             Est. 2021 · Waterfront Market · Dubai, UAE
           </span>
         </motion.div>
@@ -30,7 +48,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-playfair text-[clamp(48px,7.2vw,96px)] font-bold leading-[0.98] text-navy mb-8 drop-shadow-sm"
+          className="font-playfair text-[clamp(48px,7.2vw,96px)] font-bold leading-[0.98] text-white mb-8 drop-shadow-xl"
         >
           Where the<br />Ocean Meets<br />
           <em className="italic text-ocean block font-semibold">the City.</em>
@@ -40,7 +58,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[14px] font-medium leading-[2.1] text-navy/70 max-w-[440px] mb-12 tracking-[0.2px]"
+          className="text-[16px] font-medium leading-[2.1] text-white/80 max-w-[440px] mb-12 tracking-[0.2px]"
         >
           Seafood is not just food — it is an experience, a story, and a connection to the sea. Crafted daily at Dubai's finest waterfront.
         </motion.p>
@@ -53,14 +71,13 @@ export default function Hero() {
         >
           <Link
             href="/menu"
-            className="group relative bg-navy text-cream py-[18px] px-[44px] md:px-[54px] font-jost text-[10px] font-bold tracking-[3px] uppercase no-underline inline-block transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden shadow-2xl"
+            className="group relative bg-ocean text-navy py-[18px] px-[44px] md:px-[54px] font-jost text-[13px] font-bold tracking-[3px] uppercase no-underline inline-block transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden shadow-2xl hover:bg-white"
           >
-            <div className="absolute inset-0 bg-ocean -translate-x-[101%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0"></div>
-            <span className="relative z-10 group-hover:text-navy transition-colors duration-500">Order Online</span>
+            Order Online
           </Link>
           <a
             href="#loc"
-            className="group flex items-center gap-3.5 text-navy/70 text-[10px] tracking-[3.5px] uppercase no-underline transition-colors font-bold hover:text-navy"
+            className="group flex items-center gap-3.5 text-white/80 text-[13px] tracking-[3.5px] uppercase no-underline transition-colors font-bold hover:text-white"
           >
             Find Us
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5" />
@@ -68,20 +85,21 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.9 }}
-        className="absolute right-12 bottom-18 flex flex-col items-center gap-3 hidden md:flex"
+        className="absolute right-12 bottom-18 flex-col items-center gap-3 hidden md:flex"
       >
-        <div className="w-[1px] h-[64px] bg-navy/10 relative overflow-hidden">
+        <div className="w-[1px] h-[64px] bg-white/20 relative overflow-hidden">
           <motion.div
             animate={{ top: ["-30px", "110%"] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-0 right-0 h-[32px] bg-navy"
+            className="absolute left-0 right-0 h-[32px] bg-white/60"
           ></motion.div>
         </div>
-        <span className="[writing-mode:vertical-rl] text-[8.5px] tracking-[5px] uppercase text-navy/40 font-bold">
+        <span className="[writing-mode:vertical-rl] text-[8.5px] tracking-[5px] uppercase text-white/50 font-bold">
           Scroll
         </span>
       </motion.div>
