@@ -41,10 +41,10 @@ export default function FloatingActions() {
       {/* Always visible: View Menu */}
       <Link
         href="/menu"
-        className="flex items-center gap-3 bg-ocean text-navy px-5 py-3.5 rounded-full shadow-2xl border border-ocean/30 hover:bg-white hover:text-navy transition-all duration-300"
+        className="flex items-center gap-3 bg-ocean text-navy p-3.5 md:px-5 md:py-3.5 rounded-full shadow-2xl border border-ocean/30 hover:bg-white hover:text-navy transition-all duration-300"
       >
         <Menu size={20} className="shrink-0" />
-        <span className="text-[11px] font-bold tracking-[2.5px] uppercase">View Menu</span>
+        <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">View Menu</span>
       </Link>
 
       {/* Always visible: WhatsApp */}
@@ -52,10 +52,10 @@ export default function FloatingActions() {
         href="https://wa.me/971500000000"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-3 bg-[#25D366] text-white px-5 py-3.5 rounded-full shadow-2xl border border-[#25D366]/30 hover:bg-white hover:text-[#25D366] transition-all duration-300"
+        className="flex items-center gap-3 bg-[#25D366] text-white p-3.5 md:px-5 md:py-3.5 rounded-full shadow-2xl border border-[#25D366]/30 hover:bg-white hover:text-[#25D366] transition-all duration-300"
       >
         <MessageCircle size={20} className="shrink-0" />
-        <span className="text-[11px] font-bold tracking-[2.5px] uppercase">WhatsApp</span>
+        <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">WhatsApp</span>
       </a>
 
     </div>
