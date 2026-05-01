@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-ink" style={{ zoom: 0.67 }}>
+    <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-ink">
 
       {/* ── Full-screen video background ── */}
       <video
@@ -39,7 +39,7 @@ export default function Hero() {
           className="flex items-center gap-3.5 mb-6"
         >
           <div className="w-[38px] h-[1px] bg-white/50"></div>
-          <span className="text-[9px] tracking-[4.5px] uppercase text-white/80 font-bold">
+          <span className="text-[8px] tracking-[4px] uppercase text-white/80 font-bold">
             Est. 2021 · Waterfront Market · Dubai, UAE
           </span>
         </motion.div>
@@ -48,7 +48,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-playfair text-[clamp(48px,7.2vw,96px)] font-bold leading-[0.98] text-white mb-8 drop-shadow-xl"
+          className="font-playfair text-[clamp(30px,4vw,56px)] font-bold leading-[0.98] text-white mb-6 drop-shadow-xl"
         >
           Where the<br />Ocean Meets<br />
           <em className="italic text-ocean block font-semibold">the City.</em>
@@ -58,7 +58,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[16px] font-medium leading-[2.1] text-white/80 max-w-[440px] mb-12 tracking-[0.2px]"
+          className="text-[13px] font-medium leading-[2.0] text-white/80 max-w-[400px] mb-10 tracking-[0.2px]"
         >
           Seafood is not just food — it is an experience, a story, and a connection to the sea. Crafted daily at Dubai's finest waterfront.
         </motion.p>
@@ -71,13 +71,13 @@ export default function Hero() {
         >
           <Link
             href="/menu"
-            className="group relative bg-ocean text-navy py-[18px] px-[44px] md:px-[54px] font-jost text-[13px] font-bold tracking-[3px] uppercase no-underline inline-block transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden shadow-2xl hover:bg-white"
+            className="group relative bg-ocean text-navy py-[14px] px-[36px] md:px-[44px] font-jost text-[11px] font-bold tracking-[2.5px] uppercase no-underline inline-block transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden shadow-2xl hover:bg-white"
           >
             Order Online
           </Link>
           <a
             href="#loc"
-            className="group flex items-center gap-3.5 text-white/80 text-[13px] tracking-[3.5px] uppercase no-underline transition-colors font-bold hover:text-white"
+            className="group flex items-center gap-3 text-white/80 text-[11px] tracking-[3px] uppercase no-underline transition-colors font-bold hover:text-white"
           >
             Find Us
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5" />
