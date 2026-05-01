@@ -53,7 +53,7 @@ export default function DailyCatch() {
           transition={{ duration: 0.8 }}
           className="max-w-md text-right"
         >
-          <p className="text-[14px] leading-relaxed text-navy/60 font-light mb-8">
+          <p className="text-[16px] leading-relaxed text-navy/85 font-light mb-8">
             Our selection changes every morning based on what the ocean provides. 
             Hand-picked at the Waterfront Market at dawn.
           </p>
@@ -83,7 +83,7 @@ export default function DailyCatch() {
             <div className="flex flex-col items-center text-center px-4">
               <span className="text-[9px] tracking-[4px] uppercase text-ocean font-bold mb-3">{item.origin}</span>
               <h3 className="font-playfair text-2xl font-bold text-navy mb-4">{item.name}</h3>
-              <p className="text-[13px] leading-relaxed text-navy/50 font-light italic">"{item.description}"</p>
+              <p className="text-[14px] leading-relaxed text-navy/80 font-light italic">"{item.description}"</p>
             </div>
           </motion.div>
         ))}

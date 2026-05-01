@@ -26,7 +26,7 @@ export default function Origin() {
           <h2 className="font-playfair font-normal leading-[1.07] text-navy text-[clamp(34px,3.8vw,58px)] mb-7.5">
             A Story Written<br />by the <em className="italic text-ocean">Sea</em>
           </h2>
-          <p className="text-[13.5px] leading-[2.1] text-navy/55 font-light max-w-[400px] mb-12">
+          <p className="text-[16px] leading-[2.1] text-navy/90 font-light max-w-[400px] mb-12">
             Born at the heart of Waterfront Market, Boat Seafood stands where the ocean meets the city, and where every catch has a journey. We are committed to serving only the freshest selections — carefully chosen, expertly prepared, and honestly presented. Because quality is not a promise. It is our standard.
           </p>
           <a

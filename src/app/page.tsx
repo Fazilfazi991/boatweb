@@ -24,13 +24,13 @@ export default function Home() {
       {/* Video Manifesto Section (Sensory Break / Interlude) */}
       <div className="relative h-[72vh] overflow-hidden flex items-center justify-center z-0">
         <img src="/images/custom/menu_seafood_tower_platter_1777327161161.png" alt="Sensory Background" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-white/45 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
         
         <div className="relative text-center max-w-[860px] px-[60px]">
-          <blockquote className="font-cormorant italic text-[clamp(26px,4.2vw,56px)] font-bold text-navy leading-[1.42] mb-[22px] drop-shadow-md">
-            "Seafood is not just food — it is an experience, a story, and a <strong className="not-italic text-navy font-extrabold underline decoration-ocean/30">connection to the sea.</strong>"
+          <blockquote className="font-cormorant italic text-[clamp(26px,4.2vw,56px)] font-bold text-white leading-[1.42] mb-[22px] drop-shadow-lg">
+            "Seafood is not just food — it is an experience, a story, and a <strong className="not-italic text-white font-extrabold underline decoration-ocean/60">connection to the sea.</strong>"
           </blockquote>
-          <cite className="text-[10px] tracking-[4.5px] uppercase text-navy/70 font-bold not-italic">
+          <cite className="text-[10px] tracking-[4.5px] uppercase text-white/80 font-bold not-italic">
             Boat Seafood · Brand Manifesto
           </cite>
         </div>
@@ -49,24 +49,23 @@ export default function Home() {
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover scale-[1.06] transition-transform duration-[14s] ease-linear group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-white/45 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/15"></div>
         
         <div className="relative text-center max-w-[680px] px-10">
-          <span className="inline-flex items-center justify-center gap-3.5 text-[10px] tracking-[5px] uppercase text-navy/70 font-bold mb-6.5">
-            <span className="w-6.5 h-[1px] bg-navy/30 shrink-0"></span>
+          <span className="inline-flex items-center justify-center gap-3.5 text-[10px] tracking-[5px] uppercase text-white/80 font-bold mb-6.5">
+            <span className="w-6.5 h-[1px] bg-white/50 shrink-0"></span>
             Dubai's Finest Seafood
           </span>
-          <h2 className="font-playfair font-semibold leading-[1.02] text-navy text-[clamp(38px,5.5vw,82px)] mb-8 drop-shadow-sm">
+          <h2 className="font-playfair font-semibold leading-[1.02] text-white text-[clamp(38px,5.5vw,82px)] mb-8 drop-shadow-lg">
             The Table is Set.<br />
             <em className="italic text-ocean">Are You Ready?</em>
           </h2>
           <div className="flex flex-wrap justify-center items-center gap-7 mt-11">
             <a
               href="#loc"
-              className="group bg-navy text-cream py-[17px] px-[50px] font-jost text-[10px] font-bold tracking-[3px] uppercase no-underline inline-block transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] relative overflow-hidden shadow-xl"
+              className="group bg-white/10 backdrop-blur-sm border border-white/40 text-white py-[17px] px-[50px] font-jost text-[10px] font-bold tracking-[3px] uppercase no-underline inline-block transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] relative overflow-hidden shadow-xl hover:bg-ocean hover:border-ocean hover:text-navy"
             >
-              <div className="absolute inset-0 bg-ocean -translate-x-[101%] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0"></div>
-              <span className="relative z-10 group-hover:text-navy">Find Us</span>
+              Find Us
             </a>
           </div>
         </div>
