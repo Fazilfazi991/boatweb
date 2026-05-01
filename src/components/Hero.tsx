@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[67vh] flex items-center pt-20 overflow-hidden bg-ink">
+    <section id="hero" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-ink" style={{ zoom: 0.67 }}>
 
       {/* ── Full-screen video background ── */}
       <video
@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
 
       {/* Content */}
-      <div className="relative px-8 md:px-20 pb-12 md:pb-16 max-w-[860px]">
+      <div className="relative px-8 md:px-20 pb-20 md:pb-24 max-w-[860px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
