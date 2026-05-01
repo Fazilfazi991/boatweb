@@ -89,7 +89,7 @@ export default function Home() {
           </div>
 
           {/* Glass info card */}
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-7 shadow-2xl">
+          <div className="bg-black/50 backdrop-blur-xl border border-white/25 rounded-2xl p-7 shadow-2xl">
 
             {/* 3 info rows */}
             <div className="flex flex-col divide-y divide-white/10 mb-6">
@@ -98,8 +98,8 @@ export default function Home() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5ba4c4" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                 </div>
                 <div>
-                  <p className="text-[9px] tracking-[3px] uppercase text-white/50 font-semibold mb-0.5">Opening Hours</p>
-                  <p className="text-white text-sm font-light">Every day · 12:00 PM – 11:00 PM</p>
+                  <p className="text-[10px] tracking-[3px] uppercase text-ocean font-bold mb-1">Opening Hours</p>
+                  <p className="text-white text-base font-semibold">Every day · 12:00 PM – 11:00 PM</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 py-4">
@@ -107,8 +107,8 @@ export default function Home() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5ba4c4" strokeWidth="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <div>
-                  <p className="text-[9px] tracking-[3px] uppercase text-white/50 font-semibold mb-0.5">Find Us</p>
-                  <p className="text-white text-sm font-light">Waterfront Market, Deira, Dubai</p>
+                  <p className="text-[10px] tracking-[3px] uppercase text-ocean font-bold mb-1">Find Us</p>
+                  <p className="text-white text-base font-semibold">Waterfront Market, Deira, Dubai</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 py-4">
@@ -116,8 +116,8 @@ export default function Home() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5ba4c4" strokeWidth="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <div>
-                  <p className="text-[9px] tracking-[3px] uppercase text-white/50 font-semibold mb-0.5">Seating Policy</p>
-                  <p className="text-white text-sm font-light">Walk-ins welcome — no reservation needed</p>
+                  <p className="text-[10px] tracking-[3px] uppercase text-ocean font-bold mb-1">Seating Policy</p>
+                  <p className="text-white text-base font-semibold">Walk-ins welcome — no reservation needed</p>
                 </div>
               </div>
             </div>
