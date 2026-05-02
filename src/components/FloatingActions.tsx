@@ -79,7 +79,7 @@ export default function FloatingActions() {
         {isMenuPage ? (
           <Home size={24} className="shrink-0" />
         ) : (
-          <MenuIcon size={28} />
+          <MenuIcon size={42} />
         )}
         <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">
           {isMenuPage ? "Back Home" : "View Menu"}
