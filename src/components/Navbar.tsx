@@ -84,7 +84,17 @@ export default function Navbar() {
               className="text-white/65 hover:text-white text-[15px] font-medium tracking-[2px] uppercase transition-colors relative group"
             >
               Location
+              <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
             </a>
+          </li>
+          <li>
+            <Link
+              href="/events"
+              className="text-white/65 hover:text-white text-[15px] font-medium tracking-[2px] uppercase transition-colors relative group"
+            >
+              Events
+              <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
+            </Link>
           </li>
         </ul>
         
@@ -130,6 +140,13 @@ export default function Navbar() {
           >
             Location
           </a>
+          <Link
+            href="/events"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-white text-[15px] font-light tracking-[3px] uppercase"
+          >
+            Events
+          </Link>
         </div>
       )}
     </nav>
