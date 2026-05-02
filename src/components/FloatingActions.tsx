@@ -8,6 +8,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 
+const MenuIcon = ({ size = 24 }: { size?: number }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    className="shrink-0"
+  >
+    <circle cx="12" cy="12" r="9" strokeWidth="1.5" />
+    <circle cx="12" cy="12" r="6" strokeWidth="1" opacity="0.3" />
+    <path d="M8 8v2.5a0.5 0 0 0 0.5 0.5h0a0.5 0 0 0 0.5-0.5V8" />
+    <path d="M8.5 11v5" />
+    <path d="M15.5 8c-0.8 0-1.2 1.2-1.2 2.2s0.4 2.2 1.2 2.2 1.2-1.2 1.2-2.2-0.4-2.2-1.2-2.2z" />
+    <path d="M15.5 12.5V16" />
+  </svg>
+);
+
 export default function FloatingActions() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const pathname = usePathname();
@@ -58,15 +79,7 @@ export default function FloatingActions() {
         {isMenuPage ? (
           <Home size={24} className="shrink-0" />
         ) : (
-          <div className="relative w-7 h-7 shrink-0 flex items-center justify-center">
-            <Image 
-              src="/restaurant.png" 
-              alt="Menu" 
-              width={28} 
-              height={28} 
-              className="object-contain"
-            />
-          </div>
+          <MenuIcon size={28} />
         )}
         <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">
           {isMenuPage ? "Back Home" : "View Menu"}
