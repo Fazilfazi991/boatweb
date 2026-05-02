@@ -31,7 +31,7 @@ export default function FloatingActions() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             onClick={scrollToTop}
-            className="bg-navy/80 backdrop-blur-md text-white p-4 rounded-full shadow-lg border border-white/10 hover:bg-ocean hover:text-navy transition-all duration-300"
+            className="w-14 h-14 flex items-center justify-center bg-navy/80 backdrop-blur-md text-white rounded-full shadow-lg border border-white/10 hover:bg-ocean hover:text-navy transition-all duration-300"
           >
             <ChevronUp size={24} />
           </motion.button>
@@ -41,9 +41,9 @@ export default function FloatingActions() {
       {/* Always visible: View Menu */}
       <Link
         href="/menu"
-        className="flex items-center gap-3 bg-ocean text-navy p-3.5 md:px-5 md:py-3.5 rounded-full shadow-2xl border border-ocean/30 hover:bg-white hover:text-navy transition-all duration-300"
+        className="w-14 h-14 md:w-auto md:h-auto flex items-center justify-center md:px-5 md:py-3.5 gap-3 bg-ocean text-navy rounded-full shadow-2xl border border-ocean/30 hover:bg-white hover:text-navy transition-all duration-300"
       >
-        <Utensils size={20} className="shrink-0" />
+        <Utensils size={24} className="shrink-0" />
         <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">View Menu</span>
       </Link>
 
@@ -52,9 +52,9 @@ export default function FloatingActions() {
         href="https://wa.me/971500000000"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-3 bg-[#25D366] text-white p-3.5 md:px-5 md:py-3.5 rounded-full shadow-2xl border border-[#25D366]/30 hover:bg-white hover:text-[#25D366] transition-all duration-300"
+        className="w-14 h-14 md:w-auto md:h-auto flex items-center justify-center md:px-5 md:py-3.5 gap-3 bg-[#25D366] text-white rounded-full shadow-2xl border border-[#25D366]/30 hover:bg-white hover:text-[#25D366] transition-all duration-300"
       >
-        <MessageCircle size={20} className="shrink-0" />
+        <MessageCircle size={24} className="shrink-0" />
         <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">WhatsApp</span>
       </a>
 
