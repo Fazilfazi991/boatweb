@@ -49,7 +49,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="relative h-16 w-52 md:w-64 no-underline flex items-center"
+          className="relative h-16 md:h-20 w-52 md:w-80 no-underline flex items-center"
         >
           <img 
             src="/logo.png" 

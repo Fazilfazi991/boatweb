@@ -121,7 +121,7 @@ function MenuContent() {
               )}
             </div>
             <h1 className="font-playfair text-[clamp(40px,6vw,84px)] font-bold leading-none mb-6">
-              {tableNumber ? "Restaurant " : "Digital "}<em className="italic text-ocean">Menu</em>
+              Menu
             </h1>
             <p className="text-[15px] text-white/60 max-w-xl leading-relaxed font-light">
               {tableNumber 
@@ -182,7 +182,7 @@ function MenuContent() {
                   </div>
                   <button 
                     onClick={() => addToCart(item)}
-                    className="absolute bottom-4 right-4 bg-navy text-cream p-4 rounded-full shadow-2xl translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 hover:bg-ocean hover:text-navy"
+                    className="absolute bottom-4 right-4 bg-navy text-cream p-4 rounded-full shadow-2xl md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 hover:bg-ocean hover:text-navy opacity-100 translate-y-0"
                   >
                     {showSuccess === item.id ? <Check size={20} /> : <Plus size={20} />}
                   </button>

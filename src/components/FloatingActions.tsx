@@ -21,7 +21,7 @@ export default function FloatingActions() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-40 flex flex-col items-end gap-3">
+    <div className="fixed bottom-8 left-8 z-40 flex flex-col items-start gap-3">
 
       {/* Scroll to Top */}
       <AnimatePresence>
