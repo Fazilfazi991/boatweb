@@ -1,12 +1,16 @@
 "use client";
 
-import { MessageCircle, Utensils, ChevronUp } from "lucide-react";
+import { MessageCircle, Utensils, ChevronUp, Home } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function FloatingActions() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const pathname = usePathname();
+  const isMenuPage = pathname === "/menu";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,13 +42,31 @@ export default function FloatingActions() {
         )}
       </AnimatePresence>
 
-      {/* Always visible: View Menu */}
+      {/* Always visible: View Menu or Back Home */}
       <Link
-        href="/menu"
-        className="w-14 h-14 md:w-auto md:h-auto flex items-center justify-center md:px-5 md:py-3.5 gap-3 bg-ocean text-navy rounded-full shadow-2xl border border-ocean/30 hover:bg-white hover:text-navy transition-all duration-300"
+        href={isMenuPage ? "/" : "/menu"}
+        className={`w-14 h-14 md:w-auto md:h-auto flex items-center justify-center md:px-5 md:py-3.5 gap-3 rounded-full shadow-2xl border transition-all duration-300 ${
+          isMenuPage 
+            ? "bg-navy/90 text-white border-white/10 hover:bg-ocean hover:text-navy" 
+            : "bg-ocean text-navy border-ocean/30 hover:bg-white hover:text-navy"
+        }`}
       >
-        <Utensils size={24} className="shrink-0" />
-        <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">View Menu</span>
+        {isMenuPage ? (
+          <Home size={24} className="shrink-0" />
+        ) : (
+          <div className="relative w-6 h-6 shrink-0">
+            <Image 
+              src="/restaurant.png" 
+              alt="Menu" 
+              width={24} 
+              height={24} 
+              className="object-contain"
+            />
+          </div>
+        )}
+        <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">
+          {isMenuPage ? "Back Home" : "View Menu"}
+        </span>
       </Link>
 
       {/* Always visible: WhatsApp */}
