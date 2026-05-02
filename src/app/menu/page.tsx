@@ -229,7 +229,7 @@ function MenuContent() {
             >
               <div className="p-8 flex items-center justify-between border-b border-navy/5">
                 <div className="flex flex-col">
-                  <h2 className="font-playfair text-3xl font-bold">{tableNumber ? "Dine-in Order" : "Online Order"}</h2>
+                  <h2 className="font-playfair text-3xl font-bold">{tableNumber ? "Dine-in Order" : "Order"}</h2>
                   {tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1">Table {tableNumber}</span>}
                   {!tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1 flex items-center gap-1"><Truck size={10} /> Express Delivery</span>}
                 </div>

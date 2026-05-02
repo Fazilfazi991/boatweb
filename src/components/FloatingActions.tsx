@@ -6,10 +6,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useCart } from "@/context/CartContext";
 
 export default function FloatingActions() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const pathname = usePathname();
+  const { cartCount } = useCart();
   const isMenuPage = pathname === "/menu";
 
   useEffect(() => {
@@ -25,7 +27,9 @@ export default function FloatingActions() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-40 flex flex-col items-end gap-3">
+    <div className={`fixed right-8 z-40 flex flex-col items-end gap-3 transition-all duration-500 ${
+      cartCount > 0 ? "bottom-32 md:bottom-8" : "bottom-8"
+    }`}>
 
       {/* Scroll to Top */}
       <AnimatePresence>
