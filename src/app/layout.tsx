@@ -30,6 +30,8 @@ export const metadata: Metadata = {
   description: "Premium seafood dining in Dubai’s Waterfront Market. Fresh daily catch, signature seafood dishes, private dining, and elegant waterfront experience.",
 };
 
+import { CartProvider } from "@/context/CartContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,10 +42,12 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${jost.variable} ${cormorant.variable} antialiased selection:bg-navy selection:text-cream`}
       >
-        <SmoothScroll>
-          {children}
-          <FloatingActions />
-        </SmoothScroll>
+        <CartProvider>
+          <SmoothScroll>
+            {children}
+            <FloatingActions />
+          </SmoothScroll>
+        </CartProvider>
       </body>
     </html>
   );

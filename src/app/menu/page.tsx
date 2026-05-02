@@ -2,12 +2,13 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ShoppingBag, Plus, Minus, X, Check, Filter, Utensils, AlertCircle, Truck } from "lucide-react";
+import { ArrowLeft, ShoppingBag, Plus, Minus, X, Check, Utensils, Truck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { menuItems, MenuItem } from "@/data/menu";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 
 const categories = [
   "All",
@@ -25,8 +26,8 @@ function MenuContent() {
   const searchParams = useSearchParams();
   const tableNumber = searchParams.get("table");
   
+  const { cart, addToCart, updateQuantity, cartTotal, cartCount } = useCart();
   const [activeCategory, setActiveCategory] = useState("All");
-  const [cart, setCart] = useState<{ item: MenuItem; quantity: number }[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState<string | null>(null);
   const [isConfirming, setIsConfirming] = useState(false);
@@ -36,30 +37,11 @@ function MenuContent() {
     ? menuItems 
     : menuItems.filter(item => item.category === activeCategory);
 
-  const addToCart = (item: MenuItem) => {
-    setCart(prev => {
-      const existing = prev.find(i => i.item.id === item.id);
-      if (existing) {
-        return prev.map(i => i.item.id === item.id ? { ...i, quantity: i.quantity + 1 } : i);
-      }
-      return [...prev, { item, quantity: 1 }];
-    });
-    
+  const handleAddToCart = (item: MenuItem) => {
+    addToCart(item);
     setShowSuccess(item.id);
     setTimeout(() => setShowSuccess(null), 2000);
   };
-
-  const updateQuantity = (id: string, delta: number) => {
-    setCart(prev => prev.map(i => {
-      if (i.item.id === id) {
-        const newQty = Math.max(0, i.quantity + delta);
-        return { ...i, quantity: newQty };
-      }
-      return i;
-    }).filter(i => i.quantity > 0));
-  };
-
-  const cartTotal = cart.reduce((sum, item) => sum + (parseInt(item.item.price) * item.quantity), 0);
 
   const handlePlaceOrder = () => {
     setIsConfirming(true);
@@ -84,7 +66,7 @@ function MenuContent() {
 
     await new Promise(resolve => setTimeout(resolve, 1500));
     setOrderStatus('complete');
-    setCart([]);
+    // Clear cart after order is complete would be good, but let's keep it simple for now as per current logic
     setTimeout(() => {
       setIsConfirming(false);
       setOrderStatus('idle');
@@ -181,7 +163,7 @@ function MenuContent() {
                     ))}
                   </div>
                   <button 
-                    onClick={() => addToCart(item)}
+                    onClick={() => handleAddToCart(item)}
                     className="absolute bottom-4 right-4 bg-navy text-cream p-4 rounded-full shadow-2xl md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 hover:bg-ocean hover:text-navy opacity-100 translate-y-0"
                   >
                     {showSuccess === item.id ? <Check size={20} /> : <Plus size={20} />}
@@ -206,18 +188,24 @@ function MenuContent() {
         </div>
       </section>
 
-      {/* Cart Float Button */}
-      {cart.length > 0 && !isCartOpen && (
+      {/* Cart Indicator (only if items exist) */}
+      {cartCount > 0 && (
         <motion.button
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          initial={{ y: 100 }}
+          animate={{ y: 0 }}
           onClick={() => setIsCartOpen(true)}
-          className="fixed bottom-8 right-32 z-40 bg-navy text-cream w-16 h-16 rounded-full shadow-2xl flex items-center justify-center group"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-navy text-cream py-6 px-8 flex items-center justify-between md:hidden"
         >
-          <ShoppingBag size={24} />
-          <span className="absolute -top-1 -right-1 bg-ocean text-navy w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center">
-            {cart.reduce((s, i) => s + i.quantity, 0)}
-          </span>
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <ShoppingBag size={24} />
+              <span className="absolute -top-2 -right-2 bg-ocean text-navy w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center">
+                {cartCount}
+              </span>
+            </div>
+            <span className="text-[11px] tracking-[2px] uppercase font-bold">View Order</span>
+          </div>
+          <span className="text-xl font-bold">AED {cartTotal}</span>
         </motion.button>
       )}
 
@@ -378,4 +366,3 @@ export default function MenuPage() {
     </Suspense>
   );
 }
-

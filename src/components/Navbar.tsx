@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
+import { Menu as MenuIcon, X, ShoppingBag } from "lucide-react";
 
 export default function Navbar() {
+  const { cartCount } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -101,19 +103,36 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           <Link 
             href="/menu"
-            className="bg-ocean text-navy py-3 px-8 text-[14px] font-bold tracking-[2px] uppercase transition-all hover:bg-white"
+            className="relative group"
           >
-            Order Online
+            <div className="bg-ocean text-navy py-3 px-8 text-[14px] font-bold tracking-[2px] uppercase transition-all hover:bg-white flex items-center gap-3">
+              Order Online
+              {cartCount > 0 && (
+                <span className="flex items-center justify-center w-5 h-5 bg-navy text-white text-[10px] rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </div>
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Cart & Menu Button */}
+        <div className="flex items-center gap-5 md:hidden">
+          {cartCount > 0 && (
+            <Link href="/menu" className="relative text-white">
+              <ShoppingBag size={22} />
+              <span className="absolute -top-2 -right-2 bg-ocean text-navy w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center">
+                {cartCount}
+              </span>
+            </Link>
+          )}
+          <button
+            className="text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

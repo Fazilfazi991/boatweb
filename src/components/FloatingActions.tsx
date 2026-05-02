@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle, Menu, ChevronUp } from "lucide-react";
+import { MessageCircle, Utensils, ChevronUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,7 +21,7 @@ export default function FloatingActions() {
   };
 
   return (
-    <div className="fixed bottom-8 left-8 z-40 flex flex-col items-start gap-3">
+    <div className="fixed bottom-8 right-8 z-40 flex flex-col items-end gap-3">
 
       {/* Scroll to Top */}
       <AnimatePresence>
@@ -43,7 +43,7 @@ export default function FloatingActions() {
         href="/menu"
         className="flex items-center gap-3 bg-ocean text-navy p-3.5 md:px-5 md:py-3.5 rounded-full shadow-2xl border border-ocean/30 hover:bg-white hover:text-navy transition-all duration-300"
       >
-        <Menu size={20} className="shrink-0" />
+        <Utensils size={20} className="shrink-0" />
         <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">View Menu</span>
       </Link>
 
