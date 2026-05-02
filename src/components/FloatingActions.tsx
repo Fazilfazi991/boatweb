@@ -58,12 +58,12 @@ export default function FloatingActions() {
         {isMenuPage ? (
           <Home size={24} className="shrink-0" />
         ) : (
-          <div className="relative w-6 h-6 shrink-0">
+          <div className="relative w-7 h-7 shrink-0 flex items-center justify-center">
             <Image 
               src="/restaurant.png" 
               alt="Menu" 
-              width={24} 
-              height={24} 
+              width={28} 
+              height={28} 
               className="object-contain"
             />
           </div>
