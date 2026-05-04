@@ -75,7 +75,7 @@ function MenuContent() {
   };
 
   return (
-    <main className="bg-blue-600 min-h-screen text-white">
+    <main className="bg-[#6495b5] min-h-screen text-white">
       <Navbar />
 
       {/* Hero Section */}
@@ -115,7 +115,7 @@ function MenuContent() {
       </section>
 
       {/* Menu Navigation */}
-      <section className="sticky top-[75px] z-30 bg-blue-600/95 backdrop-blur-md border-b border-white/20 px-8 md:px-20 py-6 overflow-x-auto">
+      <section className="sticky top-[75px] z-30 bg-[#6495b5]/95 backdrop-blur-md border-b border-white/20 px-8 md:px-20 py-6 overflow-x-auto">
         <div className="flex items-center gap-8 no-scrollbar">
           {categories.map(cat => (
             <button
@@ -225,7 +225,7 @@ function MenuContent() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-blue-600 text-white z-50 shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-[#6495b5] text-white z-50 shadow-2xl flex flex-col"
             >
               <div className="p-8 flex items-center justify-between border-b border-white/20">
                 <div className="flex flex-col">
@@ -302,7 +302,7 @@ function MenuContent() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-blue-600 text-white p-10 md:p-14 max-w-lg w-full rounded-sm shadow-2xl text-center"
+              className="relative bg-[#6495b5] text-white p-10 md:p-14 max-w-lg w-full rounded-sm shadow-2xl text-center"
             >
               {orderStatus === 'idle' ? (
                 <>
@@ -361,7 +361,7 @@ function MenuContent() {
 
 export default function MenuPage() {
   return (
-    <Suspense fallback={<div className="h-screen bg-blue-600 text-white flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<div className="h-screen bg-[#6495b5] text-white flex items-center justify-center">Loading...</div>}>
       <MenuContent />
     </Suspense>
   );
