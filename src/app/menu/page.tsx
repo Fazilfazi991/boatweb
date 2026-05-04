@@ -75,7 +75,7 @@ function MenuContent() {
   };
 
   return (
-    <main className="bg-cream min-h-screen text-navy">
+    <main className="bg-blue-600 min-h-screen text-white">
       <Navbar />
 
       {/* Hero Section */}
@@ -115,14 +115,14 @@ function MenuContent() {
       </section>
 
       {/* Menu Navigation */}
-      <section className="sticky top-[75px] z-30 bg-cream/95 backdrop-blur-md border-b border-navy/5 px-8 md:px-20 py-6 overflow-x-auto">
+      <section className="sticky top-[75px] z-30 bg-blue-600/95 backdrop-blur-md border-b border-white/20 px-8 md:px-20 py-6 overflow-x-auto">
         <div className="flex items-center gap-8 no-scrollbar">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`whitespace-nowrap text-[10px] tracking-[3px] uppercase transition-all relative ${
-                activeCategory === cat ? "text-navy font-bold" : "text-navy/70 hover:text-navy"
+                activeCategory === cat ? "text-white font-bold" : "text-white/70 hover:text-white"
               }`}
             >
               {cat}
@@ -171,14 +171,14 @@ function MenuContent() {
                 </div>
                 
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-playfair text-2xl font-bold text-navy leading-tight">
+                  <h3 className="font-playfair text-2xl font-bold text-white leading-tight">
                     {item.name}
                   </h3>
                   <span className="font-jost text-lg font-medium text-ocean">
                     AED {item.price}
                   </span>
                 </div>
-                <p className="text-[13px] text-navy/50 leading-relaxed font-light mb-6 flex-grow">
+                <p className="text-[13px] text-white/70 leading-relaxed font-light mb-6 flex-grow">
                   {item.description}
                 </p>
                 <div className="h-[1px] w-12 bg-ocean/30"></div>
@@ -225,15 +225,15 @@ function MenuContent() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-cream z-50 shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-blue-600 text-white z-50 shadow-2xl flex flex-col"
             >
-              <div className="p-8 flex items-center justify-between border-b border-navy/5">
+              <div className="p-8 flex items-center justify-between border-b border-white/20">
                 <div className="flex flex-col">
                   <h2 className="font-playfair text-3xl font-bold">{tableNumber ? "Dine-in Order" : "Order"}</h2>
                   {tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1">Table {tableNumber}</span>}
                   {!tableNumber && <span className="text-[9px] tracking-[2px] uppercase text-ocean font-bold mt-1 flex items-center gap-1"><Truck size={10} /> Express Delivery</span>}
                 </div>
-                <button onClick={() => setIsCartOpen(false)} className="text-navy/40 hover:text-navy transition-colors">
+                <button onClick={() => setIsCartOpen(false)} className="text-white/70 hover:text-white transition-colors">
                   <X size={24} />
                 </button>
               </div>
@@ -241,8 +241,8 @@ function MenuContent() {
               <div className="flex-grow overflow-y-auto p-8 flex flex-col gap-8">
                 {cart.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-center">
-                    <ShoppingBag size={48} className="text-navy/10 mb-6" />
-                    <p className="text-navy/40 font-light italic">Your cart is empty.</p>
+                    <ShoppingBag size={48} className="text-white/20 mb-6" />
+                    <p className="text-white/70 font-light italic">Your cart is empty.</p>
                   </div>
                 ) : (
                   cart.map(({ item, quantity }) => (
@@ -256,10 +256,10 @@ function MenuContent() {
                           <span className="text-ocean font-medium">AED {parseInt(item.price) * quantity}</span>
                         </div>
                         <div className="flex items-center gap-4 mt-4">
-                          <div className="flex items-center border border-navy/10 rounded-full px-2 py-1">
-                            <button onClick={() => updateQuantity(item.id, -1)} className="p-1 text-navy/40 hover:text-navy"><Minus size={14} /></button>
+                          <div className="flex items-center border border-white/20 rounded-full px-2 py-1">
+                            <button onClick={() => updateQuantity(item.id, -1)} className="p-1 text-white/70 hover:text-white"><Minus size={14} /></button>
                             <span className="w-8 text-center text-xs font-bold">{quantity}</span>
-                            <button onClick={() => updateQuantity(item.id, 1)} className="p-1 text-navy/40 hover:text-navy"><Plus size={14} /></button>
+                            <button onClick={() => updateQuantity(item.id, 1)} className="p-1 text-white/70 hover:text-white"><Plus size={14} /></button>
                           </div>
                         </div>
                       </div>
@@ -302,7 +302,7 @@ function MenuContent() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-cream p-10 md:p-14 max-w-lg w-full rounded-sm shadow-2xl text-center"
+              className="relative bg-blue-600 text-white p-10 md:p-14 max-w-lg w-full rounded-sm shadow-2xl text-center"
             >
               {orderStatus === 'idle' ? (
                 <>
@@ -310,7 +310,7 @@ function MenuContent() {
                     <Utensils size={40} />
                   </div>
                   <h2 className="font-playfair text-3xl font-bold mb-4">Confirm Your Order</h2>
-                  <p className="text-navy/60 font-light mb-8 leading-relaxed">
+                  <p className="text-white/80 font-light mb-8 leading-relaxed">
                     {tableNumber 
                       ? `Your order will be sent directly to the kitchen for Table ${tableNumber}. Please confirm to proceed.`
                       : "Are you sure you want to place this order? This action cannot be undone."}
@@ -325,7 +325,7 @@ function MenuContent() {
                     </button>
                     <button 
                       onClick={() => setIsConfirming(false)}
-                      className="w-full border border-navy/10 py-5 font-jost text-[10px] font-bold tracking-[3px] uppercase text-navy/40 hover:text-navy hover:border-navy transition-all"
+                      className="w-full border border-white/20 py-5 font-jost text-[10px] font-bold tracking-[3px] uppercase text-white/70 hover:text-white hover:border-white transition-all"
                     >
                       Go Back
                     </button>
@@ -334,7 +334,7 @@ function MenuContent() {
               ) : orderStatus === 'submitting' ? (
                 <div className="py-12">
                   <div className="w-16 h-16 border-4 border-ocean border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
-                  <h3 className="text-[10px] tracking-[4px] uppercase font-bold text-navy">Sending to Kitchen...</h3>
+                  <h3 className="text-[10px] tracking-[4px] uppercase font-bold text-white">Sending to Kitchen...</h3>
                 </div>
               ) : (
                 <div className="py-12">
@@ -345,8 +345,8 @@ function MenuContent() {
                   >
                     <Check size={40} />
                   </motion.div>
-                  <h3 className="font-playfair text-3xl font-bold mb-2 text-green-600">Order Sent!</h3>
-                  <p className="text-navy/60 font-light">Chef is preparing your meal.</p>
+                  <h3 className="font-playfair text-3xl font-bold mb-2 text-green-400">Order Sent!</h3>
+                  <p className="text-white/80 font-light">Chef is preparing your meal.</p>
                 </div>
               )}
             </motion.div>
@@ -361,7 +361,7 @@ function MenuContent() {
 
 export default function MenuPage() {
   return (
-    <Suspense fallback={<div className="h-screen bg-cream flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<div className="h-screen bg-blue-600 text-white flex items-center justify-center">Loading...</div>}>
       <MenuContent />
     </Suspense>
   );
