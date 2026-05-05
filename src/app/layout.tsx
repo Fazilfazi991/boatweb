@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Jost, Cormorant_Garamond } from "next/font/google";
+import { Playfair_Display, Jost, Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -22,6 +22,12 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600"],
+});
+
 import SmoothScroll from "@/components/SmoothScroll";
 import FloatingActions from "@/components/FloatingActions";
 
@@ -40,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${jost.variable} ${cormorant.variable} antialiased selection:bg-navy selection:text-cream`}
+        className={`${playfair.variable} ${jost.variable} ${cormorant.variable} ${outfit.variable} antialiased selection:bg-navy selection:text-cream`}
       >
         <CartProvider>
           <SmoothScroll>
