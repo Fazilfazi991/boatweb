@@ -13,13 +13,13 @@ export default function Footer() {
             Premium seafood dining at the heart of Dubai's Waterfront Market. Where the ocean meets the city. Est. 2021.
           </p>
           <div className="flex gap-3">
-            <a href="#" className="w-11 h-11 border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:border-ocean hover:text-ocean" title="Instagram">
+            <a href="https://www.instagram.com/boat_seafood_/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:border-ocean hover:text-ocean" title="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="#" className="w-11 h-11 border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:border-ocean hover:text-ocean" title="TikTok">
+            <a href="https://www.tiktok.com/@boatseafoodrestaurant" target="_blank" rel="noopener noreferrer" className="w-11 h-11 border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:border-ocean hover:text-ocean" title="TikTok">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
             </a>
-            <a href="#" className="w-11 h-11 border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:border-ocean hover:text-ocean" title="Facebook">
+            <a href="https://www.facebook.com/boatseafoodrestaurant/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 border border-white/15 flex items-center justify-center text-white/40 transition-all duration-300 hover:border-ocean hover:text-ocean" title="Facebook">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
           </div>
