@@ -14,7 +14,7 @@ const MenuIcon = ({ size = 24 }: { size?: number }) => (
     alt="Menu"
     width={size}
     height={size}
-    className="shrink-0 object-contain"
+    className="w-full h-full object-cover"
   />
 );
 
@@ -59,7 +59,7 @@ export default function FloatingActions() {
       {/* Always visible: View Menu or Back Home */}
       <Link
         href={isMenuPage ? "/" : "/menu"}
-        className={`w-14 h-14 md:w-auto md:h-auto flex items-center justify-center md:px-5 md:py-3.5 gap-3 rounded-full shadow-2xl border transition-all duration-300 ${
+        className={`w-14 h-14 flex items-center justify-center rounded-full shadow-2xl border transition-all duration-300 overflow-hidden ${
           isMenuPage 
             ? "bg-navy/90 text-white border-white/10 hover:bg-ocean hover:text-navy" 
             : "bg-ocean text-navy border-ocean/30 hover:bg-white hover:text-navy"
@@ -68,11 +68,8 @@ export default function FloatingActions() {
         {isMenuPage ? (
           <Home size={24} className="shrink-0" />
         ) : (
-          <MenuIcon size={42} />
+          <MenuIcon size={56} />
         )}
-        <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">
-          {isMenuPage ? "Back Home" : "View Menu"}
-        </span>
       </Link>
 
       {/* Always visible: WhatsApp */}
@@ -80,10 +77,9 @@ export default function FloatingActions() {
         href="https://wa.me/971500000000"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-14 h-14 md:w-auto md:h-auto flex items-center justify-center md:px-5 md:py-3.5 gap-3 bg-[#25D366] text-white rounded-full shadow-2xl border border-[#25D366]/30 hover:bg-white hover:text-[#25D366] transition-all duration-300"
+        className="w-14 h-14 flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-2xl border border-[#25D366]/30 hover:bg-white hover:text-[#25D366] transition-all duration-300"
       >
-        <MessageCircle size={24} className="shrink-0" />
-        <span className="hidden md:inline text-[11px] font-bold tracking-[2.5px] uppercase">WhatsApp</span>
+        <MessageCircle size={32} className="shrink-0" />
       </a>
 
     </div>
