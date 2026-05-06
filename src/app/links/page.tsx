@@ -115,25 +115,7 @@ export default function LinksPage() {
           />
         </motion.div>
 
-        {/* Restaurant Name */}
-        <motion.h1
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="font-cormorant text-4xl md:text-5xl font-medium tracking-wider text-[#FAF7F2] mb-1 leading-tight"
-        >
-          Boat
-        </motion.h1>
 
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="font-outfit text-[0.82rem] font-light tracking-[0.22em] uppercase text-[#A8C5B8] mb-1.5"
-        >
-          Seafood Restaurant
-        </motion.p>
 
         {/* Location */}
         <motion.div
