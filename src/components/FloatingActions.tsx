@@ -10,7 +10,7 @@ import { useCart } from "@/context/CartContext";
 
 const MenuIcon = ({ size = 24 }: { size?: number }) => (
   <Image
-    src="/menu-spoon.png"
+    src="/MenuIcon-02.png"
     alt="Menu"
     width={size}
     height={size}
