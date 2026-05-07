@@ -98,6 +98,15 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
             </Link>
           </li>
+          <li>
+            <Link
+              href="/offer"
+              className="text-white/65 hover:text-white text-[15px] font-medium tracking-[2px] uppercase transition-colors relative group"
+            >
+              Offer
+              <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
+            </Link>
+          </li>
         </ul>
         
         <div className="hidden md:flex items-center gap-6">
@@ -165,6 +174,13 @@ export default function Navbar() {
             className="text-white text-[15px] font-light tracking-[3px] uppercase"
           >
             Events
+          </Link>
+          <Link
+            href="/offer"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-white text-[15px] font-light tracking-[3px] uppercase"
+          >
+            Offer
           </Link>
         </div>
       )}

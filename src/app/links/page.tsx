@@ -116,6 +116,15 @@ export default function LinksPage() {
         </motion.div>
 
 
+        {/* Tagline */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="font-outfit text-[0.82rem] font-light tracking-[0.22em] uppercase text-[#A8C5B8] mb-1.5"
+        >
+          Seafood Restaurant
+        </motion.p>
 
         {/* Location */}
         <motion.div
@@ -147,14 +156,45 @@ export default function LinksPage() {
             transition={{ duration: 0.6, delay: 1.1 }}
           >
             <Link
-              href="/gjgf.png"
-              target="_blank"
+              href="/menu"
               className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-gradient-to-br from-[#C49A3C] to-[#8B6914] text-[#0A1628] font-medium tracking-wider shadow-[0_4px_20px_rgba(196,154,60,0.25),0_1px_3px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_28px_rgba(196,154,60,0.35),0_2px_6px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 4h16v16H4z"/><path d="M4 10h16"/><path d="M10 4v16"/>
               </svg>
               View Menu
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.15 }}
+          >
+            <Link
+              href="/events"
+              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              Events
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+          >
+            <Link
+              href="/offer"
+              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+              </svg>
+              Special Offers
             </Link>
           </motion.div>
 
