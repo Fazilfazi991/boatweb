@@ -116,7 +116,7 @@ export default function Navbar() {
             <button 
               className="flex flex-col items-center justify-center text-white/65 hover:text-white transition-colors"
             >
-              <img src="/fast-shipping.png" alt="Delivery" style={{ height: "36px", width: "auto" }} />
+              <img src="/images.png" alt="Delivery" style={{ height: "36px", width: "auto" }} />
               <span className="text-[10px] tracking-[1px] uppercase mt-1">Delivery</span>
             </button>
             
@@ -222,7 +222,7 @@ export default function Navbar() {
               onClick={() => setIsMobileDeliveryOpen(!isMobileDeliveryOpen)}
               className="flex items-center gap-3 text-white text-[15px] font-light tracking-[3px] uppercase"
             >
-              <img src="/fast-shipping.png" alt="Delivery" style={{ height: "24px", width: "auto" }} />
+              <img src="/images.png" alt="Delivery" style={{ height: "24px", width: "auto" }} />
               Delivery
             </button>
             
