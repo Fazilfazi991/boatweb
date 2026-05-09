@@ -114,10 +114,10 @@ export default function Navbar() {
           {/* Delivery Button with Dropdown */}
           <div className="relative ml-11 group pb-2 -mb-2">
             <button 
-              className="flex flex-col items-center justify-center text-white/65 hover:text-white transition-colors"
+              className="flex flex-col items-center justify-center text-white/80 hover:text-white transition-colors"
             >
-              <img src="/images.png" alt="Delivery" style={{ height: "36px", width: "auto" }} />
-              <span className="text-[10px] tracking-[1px] uppercase mt-1">Delivery</span>
+              <img src="/images-removebg-preview.png" alt="Delivery" style={{ height: "36px", width: "auto" }} className="brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
+              <span className="text-[10px] tracking-[1px] uppercase mt-1 text-white">Delivery</span>
             </button>
             
             <div className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 bg-ink/95 backdrop-blur-md border border-white/10 py-1.5 min-w-[140px] z-50 rounded shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 transform group-hover:-translate-y-0 translate-y-1">
@@ -222,7 +222,7 @@ export default function Navbar() {
               onClick={() => setIsMobileDeliveryOpen(!isMobileDeliveryOpen)}
               className="flex items-center gap-3 text-white text-[15px] font-light tracking-[3px] uppercase"
             >
-              <img src="/images.png" alt="Delivery" style={{ height: "24px", width: "auto" }} />
+              <img src="/images-removebg-preview.png" alt="Delivery" style={{ height: "24px", width: "auto" }} className="brightness-0 invert" />
               Delivery
             </button>
             
