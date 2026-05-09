@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { Menu as MenuIcon, X, ShoppingBag } from "lucide-react";
@@ -9,6 +9,7 @@ export default function Navbar() {
   const { cartCount } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileDeliveryOpen, setIsMobileDeliveryOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,11 +111,44 @@ export default function Navbar() {
         </ul>
         
         <div className="hidden md:flex items-center gap-6">
+          {/* Delivery Button with Dropdown */}
+          <div className="relative ml-11 group pb-2 -mb-2">
+            <button 
+              className="flex flex-col items-center justify-center text-white/65 hover:text-white transition-colors"
+            >
+              <img src="/fast-shipping.png" alt="Delivery" style={{ height: "36px", width: "auto" }} />
+              <span className="text-[10px] tracking-[1px] uppercase mt-1">Delivery</span>
+            </button>
+            
+            <div className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 bg-ink/95 backdrop-blur-md border border-white/10 py-1.5 min-w-[140px] z-50 rounded shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 transform group-hover:-translate-y-0 translate-y-1">
+              {/* Top Caret */}
+              <div className="absolute -top-[5px] left-1/2 -translate-x-1/2 w-2 h-2 bg-ink border-l border-t border-white/10 rotate-45 z-0"></div>
+
+              <div className="relative z-10 flex flex-col">
+                <a href="https://www.talabat.com" target="_blank" rel="noopener noreferrer" className="group/item flex items-center gap-2.5 px-3 py-1.5 text-[10px] text-white/80 hover:text-white hover:bg-white/5 transition-colors tracking-[2px] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A00]"></span>
+                  Talabat
+                  <span className="ml-auto opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">→</span>
+                </a>
+                <a href="https://food.noon.com" target="_blank" rel="noopener noreferrer" className="group/item flex items-center gap-2.5 px-3 py-1.5 text-[10px] text-white/80 hover:text-white hover:bg-white/5 transition-colors tracking-[2px] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FEE000]"></span>
+                  Noon Food
+                  <span className="ml-auto opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">→</span>
+                </a>
+                <a href="https://www.keeta.com" target="_blank" rel="noopener noreferrer" className="group/item flex items-center gap-2.5 px-3 py-1.5 text-[10px] text-white/80 hover:text-white hover:bg-white/5 transition-colors tracking-[2px] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000]"></span>
+                  Keeta
+                  <span className="ml-auto opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-200">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
           <Link 
             href="/menu"
             className="relative group"
           >
-            <div className="bg-ocean text-navy py-3 px-8 text-[14px] font-bold tracking-[2px] uppercase transition-all hover:bg-white flex items-center gap-3">
+            <div className="bg-ocean text-navy py-3 px-8 text-[14px] font-bold tracking-[2px] uppercase transition-all hover:bg-white flex items-center gap-3 whitespace-nowrap">
               Order Online
               {cartCount > 0 && (
                 <span className="flex items-center justify-center w-5 h-5 bg-navy text-white text-[10px] rounded-full">
@@ -182,6 +216,33 @@ export default function Navbar() {
           >
             Offer
           </Link>
+
+          <div className="flex flex-col items-center w-full">
+            <button 
+              onClick={() => setIsMobileDeliveryOpen(!isMobileDeliveryOpen)}
+              className="flex items-center gap-3 text-white text-[15px] font-light tracking-[3px] uppercase"
+            >
+              <img src="/fast-shipping.png" alt="Delivery" style={{ height: "24px", width: "auto" }} />
+              Delivery
+            </button>
+            
+            {isMobileDeliveryOpen && (
+              <div className="flex flex-col items-center gap-4 mt-6 w-full">
+                <a href="https://www.talabat.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-[12px] text-white/80 transition-colors tracking-[2px] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A00]"></span>
+                  Talabat
+                </a>
+                <a href="https://food.noon.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-[12px] text-white/80 transition-colors tracking-[2px] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FEE000]"></span>
+                  Noon Food
+                </a>
+                <a href="https://www.keeta.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-[12px] text-white/80 transition-colors tracking-[2px] uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000]"></span>
+                  Keeta
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </nav>
