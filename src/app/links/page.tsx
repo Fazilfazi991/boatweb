@@ -150,6 +150,7 @@ export default function LinksPage() {
 
         {/* Actions */}
         <div className="w-full flex flex-col gap-3.5 mb-9">
+          {/* 1. View Menu */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -157,6 +158,8 @@ export default function LinksPage() {
           >
             <Link
               href="/menu"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-gradient-to-br from-[#C49A3C] to-[#8B6914] text-[#0A1628] font-medium tracking-wider shadow-[0_4px_20px_rgba(196,154,60,0.25),0_1px_3px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_28px_rgba(196,154,60,0.35),0_2px_6px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -166,29 +169,16 @@ export default function LinksPage() {
             </Link>
           </motion.div>
 
+          {/* 2. Special Offers */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.15 }}
           >
             <Link
-              href="/events"
-              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-              Events
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-          >
-            <Link
               href="/offer"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -198,10 +188,11 @@ export default function LinksPage() {
             </Link>
           </motion.div>
 
+          {/* 3. Review Us */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.25 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
           >
             <a
               href="https://share.google/6sDV8BO7ZwyKB4VK0"
@@ -216,6 +207,62 @@ export default function LinksPage() {
             </a>
           </motion.div>
 
+          {/* 4. Visit Us */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.25 }}
+          >
+            <a
+              href="https://share.google/m3vxo1gRP57YEAX5S"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              Visit Us
+            </a>
+          </motion.div>
+
+          {/* 5. Events */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.3 }}
+          >
+            <Link
+              href="/events"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              Events
+            </Link>
+          </motion.div>
+
+          {/* 6. Save Contact */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.35 }}
+          >
+            <button
+              onClick={saveContact}
+              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+              Save Contact
+            </button>
+          </motion.div>
+
+          {/* 7. Follow Us on Social */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -225,47 +272,26 @@ export default function LinksPage() {
               onClick={() => document.getElementById("socials")?.scrollIntoView({ behavior: "smooth", block: "center" })}
               className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
             >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h14"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H3"/>
+              </svg>
               Follow Us on Social
             </button>
           </motion.div>
 
+          {/* 8. Share */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.55 }}
-          >
-            <a
-              href="https://share.google/m3vxo1gRP57YEAX5S"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
-            >
-              Visit Us
-            </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.7 }}
-          >
-            <button
-              onClick={saveContact}
-              className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
-            >
-              Save Contact
-            </button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.85 }}
+            transition={{ duration: 0.6, delay: 1.45 }}
           >
             <button
               onClick={sharePage}
               className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
             >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
               Share
             </button>
           </motion.div>

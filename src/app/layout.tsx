@@ -34,6 +34,9 @@ import FloatingActions from "@/components/FloatingActions";
 export const metadata: Metadata = {
   title: "Boat Seafood Dubai | Premium Seafood Restaurant at Waterfront Market",
   description: "Premium seafood dining in Dubai’s Waterfront Market. Fresh daily catch, signature seafood dishes, private dining, and elegant waterfront experience.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 import { CartProvider } from "@/context/CartContext";
