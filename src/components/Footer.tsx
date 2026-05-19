@@ -50,6 +50,12 @@ export default function Footer() {
             <li><a href="https://share.google/6sDV8BO7ZwyKB4VK0" target="_blank" rel="noopener noreferrer" className="text-[15px] font-light text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Review Us</a></li>
             <li><Link href="/events" className="text-[15px] font-light text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Events</Link></li>
             <li><Link href="/#exp" className="text-[15px] font-light text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Experience</Link></li>
+            <li>
+              <Link href="/your-fish" className="flex items-center gap-2 text-[15px] font-light text-[#C89B4B] hover:text-white hover:translate-x-1 transition-all duration-300 group">
+                <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                Fresh Catch
+              </Link>
+            </li>
           </ul>
         </div>
 

@@ -1,0 +1,208 @@
+CURSOR PROMPT — REDESIGN “YOUR FISH, WE PREPARE” PAGE FOR BOATSEAFOOD.COM
+
+I am redesigning a dedicated page for Boat Seafood Restaurant called “Your Fish, We Prepare”.
+Use the uploaded image assets from the /images folder and rebuild this page in a cleaner, more premium, more engaging way.
+The page should feel elegant, modern, coastal, minimal, and conversion-friendly — aligned with Boat Seafood’s existing navy + gold + warm cream branding.
+
+PAGE GOAL
+This page explains the concept clearly:
+Customers bring their fresh fish from the market or from their own catch, and Boat Seafood prepares it exactly how they want.
+The page should communicate freshness, customization, family dining, and authentic coastal flavor.
+
+BRAND / STYLE DIRECTION
+- Premium seafood restaurant feel
+- Minimal but visually rich
+- Clean spacing, rounded cards, soft shadows, premium typography
+- Color palette:
+  - Deep navy: #0E2A47 or similar
+  - Warm gold: #C89B4B or similar
+  - Soft cream / sand: #F7F3EA
+  - White backgrounds where needed
+  - Body text in dark charcoal / navy
+- Use elegant serif heading font and clean sans-serif for body text
+- Keep the design airy and uncluttered
+- Use subtle iconography where helpful
+- Make the design responsive and polished on both desktop and mobile
+
+ASSETS TO USE
+Use these exact files from the images folder:
+- 01-choose-fresh-fish-at-market.png
+- 02-hero-grilled-fish-closeup.png
+- 03-family-seaside-dining-experience.png
+- 04-style-fried-fish.png
+- 05-style-grilled-fish.png
+- 06-style-tawa-fish.png
+- 07-style-oven-baked-fish.png
+- 08-style-curry-and-gravy-fish.png
+- 09-style-seafood-soup.png
+- 10-style-seafood-tagine.png
+- 11-style-fresh-salad.png
+Optional visual references:
+- 12-current-page-layout-reference.png
+- 13-initial-concept-reference.png
+
+PAGE CONTENT TO USE
+Main heading:
+“At Boat Seafood Restaurant, your catch becomes your perfect meal.”
+
+Supporting paragraph:
+“Bring your fresh fish directly from the market or the sea, and our chefs will prepare it exactly the way you love it — full of authentic flavor, fresh ingredients, and coastal tradition.”
+
+Preparation styles:
+- Fried
+- Grilled
+- Tawa
+- Oven Baked
+- Curry & Gravy
+- Seafood Soup
+- Tagine
+- Fresh Salads
+- And much more
+
+Closing paragraph:
+“Whether it’s a family catch, a special seafood selection, or your favorite local fish, we turn freshness into a memorable dining experience.”
+
+Closing line:
+“Your Fish. Your Taste. Expertly Prepared.”
+
+LAYOUT STRUCTURE TO BUILD
+
+1) HEADER / NAV
+- Reuse existing site header style from boatseafood.com
+- Highlight the active nav item: “Your Fish, We Prepare”
+- Include a clear “Book a Table” CTA button
+
+2) HERO SECTION (split layout)
+Create a premium 2-column hero section:
+LEFT:
+- Eyebrow text: “Your Fish, We Prepare”
+- Main heading
+- Supporting paragraph
+- 2 CTA buttons:
+  - “Book a Table” (primary)
+  - “View Preparation Styles” (secondary anchor scroll)
+- Optional small trust points below buttons:
+  - Fresh from the market
+  - Prepared to your taste
+  - Family-friendly dining
+RIGHT:
+- Use 02-hero-grilled-fish-closeup.png as the main large image
+- Add one floating info card or badge like:
+  “Fresh Catch + Expert Preparation”
+- Add subtle curved / layered background shapes for depth
+
+3) HOW IT WORKS SECTION
+Section title:
+“How It Works”
+Subtitle:
+“From fresh catch to perfect plate in 3 simple steps.”
+
+Create 3 visually consistent cards with image on top and text below:
+Card 1:
+- Image: 01-choose-fresh-fish-at-market.png
+- Title: “Choose Fresh From the Market”
+- Text: “Pick your fish straight from the market or bring your own catch.”
+
+Card 2:
+- Image: 02-hero-grilled-fish-closeup.png
+- Title: “We Prepare It Your Way”
+- Text: “Our chefs cook it exactly the way you like, using fresh ingredients and bold flavor.”
+
+Card 3:
+- Image: 03-family-seaside-dining-experience.png
+- Title: “Enjoy the Experience”
+- Text: “Dine with family and friends in a warm coastal setting by the sea.”
+
+4) PREPARATION STYLES SECTION
+Anchor id: styles
+Section intro:
+Eyebrow: “Choose Your Favorite Style”
+Heading: “Prepared Just The Way You Love It”
+Short copy: “Explore some of the ways our chefs can prepare your fish.”
+
+Create a neat responsive grid of 8 style cards.
+Each card should have:
+- image
+- small icon or badge
+- style title
+- optional short one-line caption
+
+Use these mappings:
+- Fried → 04-style-fried-fish.png
+- Grilled → 05-style-grilled-fish.png
+- Tawa → 06-style-tawa-fish.png
+- Oven Baked → 07-style-oven-baked-fish.png
+- Curry & Gravy → 08-style-curry-and-gravy-fish.png
+- Seafood Soup → 09-style-seafood-soup.png
+- Tagine → 10-style-seafood-tagine.png
+- Fresh Salads → 11-style-fresh-salad.png
+
+Optional one-line card captions:
+- Fried: “Crispy, golden, and full of flavor.”
+- Grilled: “Smoky, tender, and perfectly charred.”
+- Tawa: “Rich spices seared on a hot flat pan.”
+- Oven Baked: “Delicate, aromatic, and herb infused.”
+- Curry & Gravy: “Comforting coastal flavors in every bite.”
+- Seafood Soup: “Warm, hearty, and deeply satisfying.”
+- Tagine: “Slow-cooked with rich spices and tradition.”
+- Fresh Salads: “Light, crisp, and refreshing on the side.”
+
+Below the grid, add a centered small CTA or pill:
+“And Much More”
+
+5) EXPERIENCE / STORY SECTION
+Create a premium two-column section:
+LEFT:
+- Heading: “From Catch to Table, Always Fresh. Always Yours.”
+- Short paragraph using the closing paragraph content
+- Add 3 mini feature points with icons:
+  - Fresh Ingredients
+  - Expert Preparation
+  - Coastal Tradition
+- Add the closing line styled elegantly:
+  “Your Fish. Your Taste. Expertly Prepared.”
+
+RIGHT:
+- Use 03-family-seaside-dining-experience.png as a large lifestyle image
+- Optionally overlay a small navy badge card with the closing line
+
+6) FINAL CTA SECTION
+Create a clean CTA block before footer:
+Heading: “Ready to turn your fresh catch into the perfect meal?”
+Text: “Bring your fish, choose your style, and let our chefs do the rest.”
+Buttons:
+- “Book a Table”
+- “Contact Us”
+Optional small line: “Perfect for family meals, special catches, and seafood lovers.”
+
+7) FOOTER
+- Reuse the existing Boat Seafood footer style
+- Keep it clean and brand-consistent
+
+UX / UI REQUIREMENTS
+- Ensure excellent spacing and alignment throughout
+- Use strong visual hierarchy
+- Don’t overcrowd the page
+- Keep text widths readable
+- Cards should have consistent sizing and hover effects
+- Images should use object-fit: cover and nice rounded corners
+- Buttons should look premium and modern
+- Use subtle section separators or background tone changes
+- Mobile version should stack neatly and remain elegant
+
+TECHNICAL REQUESTS
+- Build in a reusable and clean way
+- If this is in Next.js, use optimized image handling
+- Keep sections componentized if possible:
+  - HeroSection
+  - HowItWorksSection
+  - PreparationStylesSection
+  - ExperienceSection
+  - FinalCTASection
+- Add anchor scrolling for “View Preparation Styles”
+- Maintain accessibility with proper alt text
+
+DELIVERABLE I WANT
+Please redesign the page fully using these assets and content.
+Make it look more premium, cleaner, and more engaging than the current version.
+Focus on strong composition, better spacing, premium typography, and a warm coastal seafood dining feel.
