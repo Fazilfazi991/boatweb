@@ -262,21 +262,23 @@ export default function LinksPage() {
             </button>
           </motion.div>
 
-          {/* 7. Follow Us on Social */}
+          {/* 7. Fresh Catch */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
           >
-            <button
-              onClick={() => document.getElementById("socials")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+            <Link
+              href="/your-fish"
               className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl bg-[#D4C5A9]/5 text-[#D4C5A9] border border-[#D4C5A9]/15 backdrop-blur-md hover:border-[#D4C5A9]/30 hover:text-[#e4d5b9] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h14"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H3"/>
+                <path d="M9 3c.5 1.5-.5 1.5 0 3M12 2.5c.5 1.5-.5 1.5 0 3M15 3c.5 1.5-.5 1.5 0 3" />
+                <path d="M17 11.5l-13.6 1.8A2 2 0 002 15.3v.1A2 2 0 003.8 17.4l11.4 1A2 2 0 0017.3 16.6l1-5.1z" />
+                <path d="M18 11.5l5-1" />
               </svg>
-              Follow Us on Social
-            </button>
+              Fresh Catch
+            </Link>
           </motion.div>
 
           {/* 8. Share */}
