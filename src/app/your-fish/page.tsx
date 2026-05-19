@@ -34,49 +34,41 @@ const styles = [
     label: "Fried",
     caption: "Crispy, golden, and full of flavor.",
     image: "/images/your-fish/04-style-fried-fish.png",
-    icon: "🍟",
   },
   {
     label: "Grilled",
     caption: "Smoky, tender, and perfectly charred.",
     image: "/images/your-fish/05-style-grilled-fish.png",
-    icon: "🔥",
   },
   {
     label: "Tawa",
     caption: "Rich spices seared on a hot flat pan.",
     image: "/images/your-fish/06-style-tawa-fish.png",
-    icon: "🫕",
   },
   {
     label: "Oven Baked",
     caption: "Delicate, aromatic, and herb infused.",
     image: "/images/your-fish/07-style-oven-baked-fish.png",
-    icon: "🫙",
   },
   {
     label: "Curry & Gravy",
     caption: "Comforting coastal flavors in every bite.",
     image: "/images/your-fish/08-style-curry-and-gravy-fish.png",
-    icon: "🍲",
   },
   {
     label: "Seafood Soup",
     caption: "Warm, hearty, and deeply satisfying.",
     image: "/images/your-fish/09-style-seafood-soup.png",
-    icon: "🥣",
   },
   {
     label: "Tagine",
     caption: "Slow-cooked with rich spices and tradition.",
     image: "/images/your-fish/10-style-seafood-tagine.png",
-    icon: "🏺",
   },
   {
     label: "Fresh Salads",
     caption: "Light, crisp, and refreshing on the side.",
     image: "/images/your-fish/11-style-fresh-salad.png",
-    icon: "🥗",
   },
 ];
 
@@ -349,10 +341,6 @@ export default function YourFishPage() {
                   />
                   {/* Dark veil on hover */}
                   <div className="absolute inset-0 bg-[#0E2A47]/0 group-hover:bg-[#0E2A47]/20 transition-colors duration-500" />
-                  {/* Icon badge */}
-                  <div className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-base shadow-sm">
-                    {s.icon}
-                  </div>
                 </div>
                 {/* Label */}
                 <div className="px-4 py-4">
