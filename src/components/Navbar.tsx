@@ -108,6 +108,15 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-ocean scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
             </Link>
           </li>
+          <li>
+            <Link
+              href="/your-fish"
+              className="text-[#C49A3C] hover:text-white text-[15px] font-medium tracking-[2px] uppercase transition-colors relative group"
+            >
+              Your Fish, We Prepare
+              <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-[#C49A3C] scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"></span>
+            </Link>
+          </li>
         </ul>
         
         <div className="hidden md:flex items-center gap-6">
@@ -215,6 +224,13 @@ export default function Navbar() {
             className="text-white text-[15px] font-light tracking-[3px] uppercase"
           >
             Offer
+          </Link>
+          <Link
+            href="/your-fish"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-[#C49A3C] text-[15px] font-light tracking-[3px] uppercase"
+          >
+            Your Fish, We Prepare
           </Link>
 
           <div className="flex flex-col items-center w-full">

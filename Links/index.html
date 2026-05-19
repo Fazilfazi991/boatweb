@@ -263,6 +263,33 @@ body::after{
   box-shadow:0 4px 16px rgba(212,197,169,0.08);
 }
 
+/* Your Fish, We Prepare — Signature button */
+.btn-your-fish{
+  background:rgba(15,33,55,0.85);
+  color:#C49A3C;
+  border:1px solid rgba(196,154,60,0.35);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  font-weight:600;
+  letter-spacing:0.06em;
+  opacity:0;
+  transform:translateY(18px);
+  animation:slideUp 0.6s ease 1.85s forwards;
+}
+.btn-your-fish::before{
+  background:linear-gradient(135deg,rgba(196,154,60,0.12) 0%,rgba(139,105,20,0.08) 100%);
+}
+.btn-your-fish:hover::before,.btn-your-fish:focus::before{opacity:1}
+.btn-your-fish:hover{
+  border-color:rgba(196,154,60,0.7);
+  color:#D4AA4C;
+  transform:translateY(-2px);
+  box-shadow:0 6px 24px rgba(196,154,60,0.2), 0 2px 8px rgba(0,0,0,0.2);
+}
+.btn-your-fish svg{
+  color:#C49A3C;
+}
+
 /* ── Social Icons Row ── */
 .socials{
   display:flex;
@@ -417,18 +444,37 @@ body::after{
     </button>
 
     <a href="https://share.google/m3vxo1gRP57YEAX5S" target="_blank" rel="noopener" class="action-btn btn-follow" style="animation-delay: 1.55s;" id="btn-location">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
       Visit Us
     </a>
 
     <button class="action-btn btn-follow" style="animation-delay: 1.7s;" id="btn-save-contact" onclick="saveContact()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
       Save Contact
     </button>
 
-    <button class="action-btn btn-follow" style="animation-delay: 1.85s;" id="btn-share" onclick="sharePage()">
+    <!-- Your Fish, We Prepare — special highlighted button -->
+    <a href="/your-fish" target="_blank" rel="noopener" class="action-btn btn-your-fish" style="animation-delay: 1.85s;" id="btn-your-fish">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        <!-- fish icon path -->
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      Your Fish, We Prepare
+    </a>
+
+    <button class="action-btn btn-follow" style="animation-delay: 2s;" id="btn-share" onclick="sharePage()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
       Share
     </button>
-
-
 
   </div>
 
