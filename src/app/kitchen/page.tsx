@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Clock, Utensils, AlertCircle, RefreshCw, LogOut } from "lucide-react";
+import { Check, Clock, Utensils, AlertCircle, RefreshCw, LogOut, BellOff } from "lucide-react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 interface Order {
   id: string;
@@ -17,35 +18,67 @@ interface Order {
 export default function KitchenPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [lastOrderCount, setLastOrderCount] = useState(0);
+  const [isRinging, setIsRinging] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const loadOrders = () => {
-    const saved = JSON.parse(localStorage.getItem('boat_orders') || '[]');
-    setOrders(saved.filter((o: Order) => o.status !== 'completed').reverse());
-    
-    if (saved.length > lastOrderCount) {
-      // Play a subtle notification sound if new order
-      const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
-      audio.play().catch(e => console.log("Audio play blocked"));
-      setLastOrderCount(saved.length);
+  useEffect(() => {
+    audioRef.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+    audioRef.current.loop = true;
+  }, []);
+
+  const stopRinging = () => {
+    setIsRinging(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  const loadOrders = async () => {
+    const { data, error } = await supabase
+      .from('orders')
+      .select('*')
+      .eq('status', 'pending')
+      .order('timestamp', { ascending: false });
+
+    if (data) {
+      setOrders(data);
+      if (data.length > lastOrderCount) {
+        setIsRinging(true);
+        audioRef.current?.play().catch(e => console.log("Audio play blocked"));
+      }
+      setLastOrderCount(data.length);
+    } else if (error) {
+      console.error("Error loading orders:", error);
     }
   };
 
   useEffect(() => {
     loadOrders();
-    const interval = setInterval(loadOrders, 5000); // Poll every 5s
-    return () => clearInterval(interval);
+    
+    // Subscribe to real-time changes
+    const subscription = supabase
+      .channel('orders_channel')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => {
+        loadOrders();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(subscription);
+    };
   }, [lastOrderCount]);
 
-  const completeOrder = (id: string) => {
-    const all = JSON.parse(localStorage.getItem('boat_orders') || '[]');
-    const updated = all.map((o: Order) => o.id === id ? { ...o, status: 'completed' } : o);
-    localStorage.setItem('boat_orders', JSON.stringify(updated));
+  const completeOrder = async (id: string) => {
+    stopRinging();
+    await supabase.from('orders').update({ status: 'completed' }).eq('id', id);
     loadOrders();
   };
 
-  const clearAll = () => {
-    if (confirm("Are you sure you want to clear all orders?")) {
-      localStorage.setItem('boat_orders', '[]');
+  const clearAll = async () => {
+    if (confirm("Are you sure you want to clear all pending orders?")) {
+      stopRinging();
+      await supabase.from('orders').delete().eq('status', 'pending');
       loadOrders();
     }
   };
@@ -63,6 +96,15 @@ export default function KitchenPage() {
         </div>
         
         <div className="flex items-center gap-6">
+          {isRinging && (
+            <button 
+              onClick={stopRinging}
+              className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-sm transition-all animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.5)]"
+            >
+              <BellOff size={16} />
+              <span className="text-[9px] tracking-[2px] uppercase font-bold">Silence Alarm</span>
+            </button>
+          )}
           <button 
             onClick={loadOrders}
             className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-sm transition-all"
@@ -118,7 +160,7 @@ export default function KitchenPage() {
                         {new Date(order.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
-                    <div className="text-[9px] text-white/20">#{order.id}</div>
+                    <div className="text-[9px] text-white/20">#{order.id.slice(0,8)}</div>
                   </div>
                 </div>
 

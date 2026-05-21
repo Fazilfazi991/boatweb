@@ -2,15 +2,40 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { menuItems } from "../data/menu";
+import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
 
 export default function MenuShowcase() {
+  const [menuItems, setMenuItems] = useState<any[]>([]);
+  const supabase = createClient();
+
+  useEffect(() => {
+    async function fetchShowcase() {
+      const { data } = await supabase
+        .from('menu_items')
+        .select('*')
+        .eq('is_active', true)
+        .order('created_at', { ascending: true })
+        .limit(6);
+      
+      if (data) {
+        setMenuItems(data.map(item => ({
+          ...item,
+          image: item.image_url,
+          tall: item.is_tall,
+          wide: item.is_wide
+        })));
+      }
+    }
+    fetchShowcase();
+  }, []);
+
   return (
     <section className="bg-cream pt-12 pb-0" id="menu">
 
       <div className="grid grid-cols-1 md:grid-cols-[1.35fr_1fr_1fr_1.35fr] md:grid-rows-[480px_310px] gap-[3px]">
-        {menuItems.slice(0, 6).map((item, i) => (
+        {menuItems.map((item, i) => (
           <div
             key={item.id}
             className={`group relative overflow-hidden bg-cream 

@@ -3,32 +3,21 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Waves } from "lucide-react";
 import Link from "next/link";
-
-const dailyCatch = [
-  {
-    name: "Alaskan King Crab",
-    origin: "Bering Sea",
-    description: "Premium clusters, naturally sweet and tender.",
-    image: "/images/custom/menu_alaskan_king_crab.png",
-    price: "310",
-  },
-  {
-    name: "Mediterranean Sea Bass",
-    origin: "Greece",
-    description: "Whole-roasted with sea salt, citrus, and herbs.",
-    image: "/images/custom/menu_seabass_mediterranean_1777327177113.png",
-    price: "185",
-  },
-  {
-    name: "Bluefin Tuna",
-    origin: "Local Waters",
-    description: "Sustainably caught, served as carpaccio or grilled.",
-    image: "https://images.pexels.com/photos/3296395/pexels-photo-3296395.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
-    price: "145",
-  },
-];
+import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
 
 export default function DailyCatch() {
+  const [dailyCatch, setDailyCatch] = useState<any[]>([]);
+  const supabase = createClient();
+
+  useEffect(() => {
+    async function fetchCatch() {
+      const { data } = await supabase.from('daily_catch').select('*').eq('is_available', true).order('updated_at', { ascending: false });
+      if (data) setDailyCatch(data);
+    }
+    fetchCatch();
+  }, []);
+
   return (
     <section className="bg-cream py-32 px-8 md:px-20 overflow-hidden">
       <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
@@ -74,7 +63,7 @@ export default function DailyCatch() {
             className="group cursor-default"
           >
             <div className="relative aspect-[3/4] overflow-hidden mb-8 rounded-sm">
-              <img src={item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <img src={item.image_url} alt={item.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors duration-500"></div>
               <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full">
                 <span className="text-[8px] tracking-[2px] uppercase text-navy font-bold">AED {item.price}</span>

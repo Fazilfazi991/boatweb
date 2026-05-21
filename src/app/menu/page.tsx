@@ -9,6 +9,7 @@ import { menuItems, MenuItem } from "@/data/menu";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "@/context/CartContext";
+import { createClient } from "@/utils/supabase/client";
 
 const categories = [
   "All",
@@ -26,16 +27,38 @@ function MenuContent() {
   const searchParams = useSearchParams();
   const tableNumber = searchParams.get("table");
   
-  const { cart, addToCart, updateQuantity, cartTotal, cartCount } = useCart();
+  const { cart, addToCart, updateQuantity, cartTotal, cartCount, isCartOpen, setIsCartOpen } = useCart();
   const [activeCategory, setActiveCategory] = useState("All");
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState<string | null>(null);
   const [isConfirming, setIsConfirming] = useState(false);
   const [orderStatus, setOrderStatus] = useState<'idle' | 'submitting' | 'complete'>('idle');
+  
+  const [dbMenuItems, setDbMenuItems] = useState<MenuItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const supabase = createClient();
+
+  useEffect(() => {
+    async function fetchMenu() {
+      const { data, error } = await supabase.from('menu_items').select('*').eq('is_active', true).order('created_at', { ascending: true });
+      if (error) {
+        console.error("Error fetching menu:", error);
+      }
+      if (data) {
+        // Map database fields to MenuItem structure if needed
+        const formatted = data.map(d => ({
+          ...d,
+          image: d.image_url
+        }));
+        setDbMenuItems(formatted);
+      }
+      setIsLoading(false);
+    }
+    fetchMenu();
+  }, []);
 
   const filteredItems = activeCategory === "All" 
-    ? menuItems 
-    : menuItems.filter(item => item.category === activeCategory);
+    ? dbMenuItems 
+    : dbMenuItems.filter(item => item.category === activeCategory);
 
   const handleAddToCart = (item: MenuItem) => {
     addToCart(item);
@@ -50,21 +73,26 @@ function MenuContent() {
   const submitOrder = async () => {
     setOrderStatus('submitting');
     
-    // Simulate API call
+    // Create the order payload
     const newOrder = {
-      id: Math.random().toString(36).substr(2, 9),
       table: tableNumber || "Takeaway",
       items: cart.map(c => ({ name: c.item.name, quantity: c.quantity })),
       total: cartTotal,
-      timestamp: new Date().toISOString(),
       status: 'pending'
     };
 
-    // Save to localStorage for mock Kitchen Dashboard
-    const existingOrders = JSON.parse(localStorage.getItem('boat_orders') || '[]');
-    localStorage.setItem('boat_orders', JSON.stringify([...existingOrders, newOrder]));
+    try {
+      const { error } = await supabase
+        .from('orders')
+        .insert(newOrder);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+      if (error) {
+        console.error("Error saving order to Supabase:", error);
+      }
+    } catch (e) {
+      console.error("Unexpected error saving order:", e);
+    }
+
     setOrderStatus('complete');
     // Clear cart after order is complete would be good, but let's keep it simple for now as per current logic
     setTimeout(() => {
@@ -135,9 +163,14 @@ function MenuContent() {
       </section>
 
       {/* Menu Grid */}
-      <section className="px-8 md:px-20 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          <AnimatePresence mode="popLayout">
+      <section className="px-8 md:px-20 py-20 min-h-[50vh]">
+        {isLoading ? (
+          <div className="flex justify-center items-center h-40">
+            <div className="w-10 h-10 border-4 border-ocean border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
@@ -186,6 +219,7 @@ function MenuContent() {
             ))}
           </AnimatePresence>
         </div>
+        )}
       </section>
 
       {/* Cart Indicator (only if items exist) */}

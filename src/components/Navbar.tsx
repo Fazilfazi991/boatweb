@@ -2,11 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import { Menu as MenuIcon, X, ShoppingBag } from "lucide-react";
 
 export default function Navbar() {
-  const { cartCount } = useCart();
+  const { cartCount, setIsCartOpen } = useCart();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileDeliveryOpen, setIsMobileDeliveryOpen] = useState(false);
@@ -153,8 +156,13 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link 
-            href="/menu"
+          <button 
+            onClick={() => {
+              if (pathname !== "/menu") {
+                router.push("/menu");
+              }
+              setIsCartOpen(true);
+            }}
             className="relative group"
           >
             <div className="bg-ocean text-navy py-3 px-8 text-[14px] font-bold tracking-[2px] uppercase transition-all hover:bg-white flex items-center gap-3 whitespace-nowrap">
@@ -165,7 +173,7 @@ export default function Navbar() {
                 </span>
               )}
             </div>
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Cart & Menu Button */}
